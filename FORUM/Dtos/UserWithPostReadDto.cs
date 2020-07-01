@@ -3,7 +3,7 @@ using FORUM.Models;
 
 namespace FORUM.Dtos
 {
-    public class UserReadDto{
+    public class UserWithPostReadDto{
  
 
          public int Id { get; set; }
@@ -11,6 +11,7 @@ namespace FORUM.Dtos
          public string email { get; set; }
          public string img { get; set; }
 
+         public List<PostReadDto> posts;
 
 
     }

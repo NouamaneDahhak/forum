@@ -3,14 +3,16 @@ using System;
 using FORUM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FORUM.Migrations
 {
     [DbContext(typeof(ForumContext))]
-    partial class ForumContextModelSnapshot : ModelSnapshot
+    [Migration("20200630194150_InitialMigration2")]
+    partial class InitialMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

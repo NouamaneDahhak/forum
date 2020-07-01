@@ -10,6 +10,7 @@ namespace FORUM.Profiles
        public UsersProfile()
        {
            CreateMap<User,UserReadDto>();
+           CreateMap<User,UserWithPostReadDto>();
            CreateMap<UserCreateDto,User>();
 
        }

@@ -1,15 +1,10 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+using FORUM.Models;
 
-namespace FORUM.Models
+namespace FORUM.Dtos
 {
-    public class Post
+    public class CommentCreateDto
     {
-
-         [Key]
          public int Id { get; set; }
-         public int userId  { get; set; }
          public string title { get; set; }
 
          public string content { get; set; }
@@ -19,12 +14,9 @@ namespace FORUM.Models
          public string views { get; set; }
          public string nbComment { get; set; }
 
+         public int userId { get; set; }
+
+
          public User user { get; set; }
-
-         public List<Comment> comments { get; set; }
-
-
-
-
     }
 }

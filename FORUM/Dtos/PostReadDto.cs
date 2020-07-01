@@ -9,6 +9,12 @@ namespace FORUM.Dtos
 
          public string content { get; set; }
 
-         public User user { get; set; }
+         public string img { get; set; }
+
+         public string date { get; set; }
+         public string views { get; set; }
+         public string nbComment { get; set; }
+        //  public UserReadDto user { get; set; }
+
     }
 }

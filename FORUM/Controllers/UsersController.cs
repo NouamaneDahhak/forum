@@ -30,19 +30,18 @@ namespace FORUM.Controllers
         }
         
         [HttpGet("{id}")]
-        public ActionResult <UserReadDto> GetUserById(int id){
+        public ActionResult <UserWithPostReadDto> GetUserById(int id){
 
                   var UserItem = _repository.GetUserById(id);
                   if(UserItem != null){
-                       return Ok(_mapper.Map<UserReadDto>(UserItem));
+                       return Ok(_mapper.Map<UserWithPostReadDto>(UserItem));
                      
                   }
                   return NotFound();
             
         }
-
-         [HttpPost]
-        public ActionResult <UserReadDto> CreatePost(UserCreateDto _UserCreateDto){
+         [HttpPost("register")]
+        public ActionResult <UserReadDto> CreateUser(UserCreateDto _UserCreateDto){
 
                   var userModel = _mapper.Map<User>(_UserCreateDto);
                   _repository.createUser(userModel);
@@ -50,6 +49,20 @@ namespace FORUM.Controllers
                   var userItem = _mapper.Map<UserReadDto>(userModel);
 
                   return Ok(userItem);
+            
+        }
+
+         [HttpPost("login")]
+        public ActionResult <UserReadDto> UserLogin(User user){
+
+                 var userItem = _repository.UserLogin(user);
+
+                 if(userItem != null){
+                     return  Ok(_mapper.Map<UserReadDto>(userItem));  
+                  }
+                  return NotFound();
+
+
             
         }
 

@@ -31,16 +31,17 @@ namespace FORUM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ForumContext>(opt => opt.UseMySql(Configuration.GetConnectionString("PostConnection")));
-   
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IPostRepo,SqlForumRepo>();
+            services.AddScoped<IUserRepo,SqlUserRepo>();
+            services.AddScoped<ICommentRepo,SqlCommentRepo>();
             // services.AddScoped<IPostRepo,MockPostRepo>();
             services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
-            services.AddScoped<IPostRepo,SqlForumRepo>();
-            services.AddScoped<IUserRepo,SqlUserRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

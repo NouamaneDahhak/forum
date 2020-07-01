@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FORUM.Models;
+using FORUM.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace FORUM.Data
@@ -36,6 +37,13 @@ namespace FORUM.Data
             return _context.User
             .Include(p => p.Posts)
             .FirstOrDefault(p => p.Id == id);
+             
+        }
+
+        public User UserLogin(User user)
+        {
+            return _context.User
+            .FirstOrDefault(p => p.email == user.email && p.password == user.password);
              
         }
          public bool SaveChanges()
