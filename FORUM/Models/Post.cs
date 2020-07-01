@@ -10,6 +10,8 @@ namespace FORUM.Models
          [Key]
          public int Id { get; set; }
          public int userId  { get; set; }
+         public int categoryId { get; set; }
+
          public string title { get; set; }
 
          public string content { get; set; }
@@ -20,8 +22,10 @@ namespace FORUM.Models
          public string nbComment { get; set; }
 
          public User user { get; set; }
+         public Category category { get; set; }
 
-         public List<Comment> comments { get; set; }
+
+         
 
 
 

@@ -2,7 +2,7 @@ using FORUM.Models;
 
 namespace FORUM.Dtos
 {
-    public class PostReadDto
+    public class PostReadWithoutAnyDTO
     {
          public int Id { get; set; }
          public string title { get; set; }
@@ -15,7 +15,6 @@ namespace FORUM.Dtos
          public string views { get; set; }
          public string nbComment { get; set; }
          public UserReadDto user { get; set; }
-         public Category category { get; set; }
 
          public int userId  { get; set; }
          public int categoryId { get; set; }

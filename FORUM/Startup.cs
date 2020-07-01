@@ -60,6 +60,7 @@ namespace FORUM
             services.AddScoped<IPostRepo,SqlForumRepo>();
             services.AddScoped<IUserRepo,SqlUserRepo>();
             services.AddScoped<ICommentRepo,SqlCommentRepo>();
+            services.AddScoped<ICategoryRepo,SqlCategoryRepo>();
             // services.AddScoped<IPostRepo,MockPostRepo>();
             services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>

@@ -11,6 +11,7 @@ namespace FORUM.Profiles
        {
            CreateMap<Post,PostReadDto>();
            CreateMap<PostCreateDto,Post>();
+           CreateMap<PostReadWithoutAnyDTO,Post>();
        }
         
     }

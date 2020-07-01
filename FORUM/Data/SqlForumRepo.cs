@@ -29,6 +29,7 @@ namespace FORUM.Data
         {
             return _context.Posts
             .Include(p => p.user)
+            .Include(c => c.category)
             .ToList();
          }
 
@@ -36,6 +37,7 @@ namespace FORUM.Data
         {
             return _context.Posts
             .Include(p => p.user)
+            .Include(c => c.category)
             .FirstOrDefault(p => p.Id == id);
              
         }

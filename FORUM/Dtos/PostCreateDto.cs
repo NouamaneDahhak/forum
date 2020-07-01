@@ -15,6 +15,9 @@ namespace FORUM.Dtos
          public string nbComment { get; set; }
 
          public int userId { get; set; }
+         public int categoryId { get; set; }
+
+         
 
 
          public User user { get; set; }
