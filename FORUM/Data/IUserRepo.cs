@@ -9,9 +9,7 @@ namespace FORUM.Data
         IEnumerable<User> GetAppUsers();
         User GetUserById(int id);
         User UserLogin(User user);
-
         void createUser(User user);
-
         bool SaveChanges();
 
        

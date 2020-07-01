@@ -1,4 +1,7 @@
+import { FormBuilder } from '@angular/forms';
+import { ServicesService } from './../../services.service';
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/DTO/Post';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  listPosts:Array<Post>
+
+  constructor(private formBuilder: FormBuilder , private servicesService: ServicesService) { }
 
   ngOnInit(): void {
+
+    this.servicesService.GetAllPosts().subscribe((posts)=>{
+      this.listPosts = posts as Array<Post>
+
+
+    })
   }
+
+
 
 }

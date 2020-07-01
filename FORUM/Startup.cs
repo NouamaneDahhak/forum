@@ -20,6 +20,8 @@ namespace FORUM
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,6 +32,28 @@ namespace FORUM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+              services.AddCors(options =>
+        {
+            options.AddPolicy(name: MyAllowSpecificOrigins,
+                              builder =>
+                              {
+                                  builder.WithOrigins("http://localhost:5000");
+                              });
+        });
+
+   
+        // services.AddCors(options =>
+        // {
+        //     options.AddPolicy("AllowAll", p =>
+        //     {
+        //         p.AllowAnyOrigin()
+        //         .AllowAnyHeader()
+        //         .AllowAnyMethod();
+        //     });
+        // });
+    //   services.AddMvc(option => option.EnableEndpointRouting = false) .AddNewtonsoftJson();
+
+
             services.AddDbContext<ForumContext>(opt => opt.UseMySql(Configuration.GetConnectionString("PostConnection")));
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -62,6 +86,11 @@ namespace FORUM
             {
                 endpoints.MapControllers();
             });
+            // app.UseCors("AllowAll");
+            // app.UseMvc();
+
+                          app.UseCors(MyAllowSpecificOrigins);
+
         }
     }
 }

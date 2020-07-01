@@ -14,7 +14,7 @@ namespace FORUM.Dtos
          public string date { get; set; }
          public string views { get; set; }
          public string nbComment { get; set; }
-        //  public UserReadDto user { get; set; }
+         public UserReadDto user { get; set; }
 
     }
 }

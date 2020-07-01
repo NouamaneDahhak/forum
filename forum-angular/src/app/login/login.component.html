@@ -3,13 +3,13 @@
   <div class="modal-bodies">
     <div class="modal-body modal-body-step-1 is-showing">
       <div class="title">Log In</div>
-      <div class="description">Hello there, Log In</div>
-      <form>
-        <input type="text" placeholder="Name"/>
-        <input type="email" placeholder="Email"/>
+      <div class="description">{{message}}</div>
+      <form [formGroup]="importForm">
+        <input formControlName="email" type="text" placeholder="Email"    />
+        <input formControlName="password" type="email" placeholder="Password"/>
         <div class="text-center">
-          <div class="button">LOG IN</div>
-            <a href="signup.html" target="_blank"><div class="button">Create an account</div></a>
+          <div class="button" (click)="UserLogin()">LOG IN</div>
+            <a href="signup.html" target="_blank"><div  class="button">Create an account</div></a>
         </div>
       </form>
     </div>

@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { PostDetailsComponent } from './posts/post-details/post-details.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,18 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     LoginComponent,
     PostDetailsComponent,
     SignUpComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

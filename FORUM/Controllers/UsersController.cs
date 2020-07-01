@@ -37,7 +37,7 @@ namespace FORUM.Controllers
                        return Ok(_mapper.Map<UserWithPostReadDto>(UserItem));
                      
                   }
-                  return NotFound();
+                  return null;
             
         }
          [HttpPost("register")]
@@ -60,7 +60,7 @@ namespace FORUM.Controllers
                  if(userItem != null){
                      return  Ok(_mapper.Map<UserReadDto>(userItem));  
                   }
-                  return NotFound();
+                  return null;
 
 
             
