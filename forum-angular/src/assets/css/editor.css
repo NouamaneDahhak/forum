@@ -51,7 +51,7 @@
 }
 
 .jumbotron:after {
-    background: url("../images/pattern.png") repeat scroll center center transparent;
+    background: url("../image/images.png") repeat scroll center center transparent;
     bottom: 0;
     content: "";
     display: block;

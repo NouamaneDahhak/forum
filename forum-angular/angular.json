@@ -24,19 +24,23 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/bootstrap.min.css",
               "src/styles.css",
               "src/assets/css/animate.css",
               "src/assets/css/bootstrap.css",
-              "src/assets/css/bootstrap.min.css",
               "src/assets/css/editor.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/loginstyle.css",
               "src/assets/css/responsive.css",
               "src/assets/css/style.css"
-
-
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/bootstrap.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/editor.js",
+              "src/assets/js/jquery-3.1.1.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
@@ -129,6 +133,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "forum-angular"
+    }
+  },
+  "defaultProject": "forum-angular",
+  "cli": {
+    "analytics": "093bd303-944f-47e4-a0a5-ef6d933a438d"
+  }
 }
