@@ -9,6 +9,7 @@ namespace FORUM.Models
 
          [Key]
          public int Id { get; set; }
+        
          public int userId  { get; set; }
          public int categoryId { get; set; }
 
@@ -20,6 +21,9 @@ namespace FORUM.Models
          public string date { get; set; }
          public string views { get; set; }
          public string nbComment { get; set; }
+
+         public int nblike { get; set; }
+         public int nbdislike { get; set; }
 
          public User user { get; set; }
          public Category category { get; set; }

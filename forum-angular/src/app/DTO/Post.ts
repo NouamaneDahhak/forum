@@ -4,7 +4,7 @@ import { User } from './User';
 export class Post
 {
 
-     public  Id :number;
+     public  id :number;
      public  userId :number
      public  title :string
      public  content :string

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2020 at 05:56 PM
+-- Generation Time: Jul 02, 2020 at 10:30 PM
 -- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.31
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,18 +79,20 @@ CREATE TABLE `posts` (
   `views` longtext DEFAULT NULL,
   `nbComment` longtext DEFAULT NULL,
   `userId` int(11) NOT NULL,
-  `categoryId` int(11) NOT NULL
+  `categoryId` int(11) NOT NULL,
+  `nbdislike` int(11) NOT NULL DEFAULT 0,
+  `nblike` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`) VALUES
-(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1),
-(2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1),
-(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 1),
-(5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2);
+INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`) VALUES
+(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1, 0, 0),
+(2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0),
+(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 1, 0, 0),
+(5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -132,18 +134,21 @@ CREATE TABLE `user` (
   `username` longtext DEFAULT NULL,
   `password` longtext DEFAULT NULL,
   `email` longtext DEFAULT NULL,
-  `img` longtext DEFAULT NULL
+  `img` longtext DEFAULT NULL,
+  `Usertype` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`) VALUES
-(1, 'DAHHAK1', 'DAHHAK1', 'DAHHAK1', 'images.png'),
-(2, 'DAHHAK2', 'DAHHAK2', 'DAHHAK2', 'images.png'),
-(3, 'DAHHAK3', 'DAHHAK3', 'DAHHAK3', 'images.png'),
-(4, 'DAHHAK4', 'DAHHAK4', 'DAHHAK4', 'images.png');
+INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`, `Usertype`) VALUES
+(1, 'user1', 'user1', 'user1', 'images.png', NULL),
+(2, 'user2', 'user2', 'user2', 'images.png', NULL),
+(3, 'user3', 'user3', 'user3', 'images.png', NULL),
+(4, 'user4', 'user4', 'user4', 'images.png', NULL),
+(5, 'user5', 'user5', 'user5', NULL, NULL),
+(6, 'user6', 'user6', 'user6', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -165,7 +170,8 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20200630194150_InitialMigration2', '3.1.5'),
 ('20200701092009_InitialCreate3', '3.1.5'),
 ('20200701163552_InitialMigration4', '3.1.5'),
-('20200702150219_imm6', '3.1.5');
+('20200702150219_imm6', '3.1.5'),
+('20200702184352_mig01', '3.1.5');
 
 --
 -- Indexes for dumped tables
@@ -245,7 +251,7 @@ ALTER TABLE `reaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

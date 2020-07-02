@@ -61,7 +61,7 @@
       <div class="comment-list12993">
           <div class="container">
               <div class="row">
-
+<label>Commenter</label>
                   <div class="comments-container">
                       <ul id="comments-list" class="comments-list">
 
@@ -85,15 +85,18 @@
               </div>
           </div>
       </div>
-      <div [formGroup]="importForm" class="comment289-box">
+      <div *ngIf="idUser != null"  [formGroup]="importForm" class="comment289-box">
           <h3>Leave A Reply</h3>
           <hr>
           <div class="row">
 
               <div class="post9320-box">
                   <input formControlName="content" type="text" class="comment-input219882" placeholder="Enter Your Post"> </div>
-              <button (click)="CreateComment()" type="button" class="pos393-submit">Post Your Answer</button>
+              <button (click)="CreateComment()" type="button" class="pos393-submit">Commenter</button>
           </div>
+      </div>
+      <div *ngIf="idUser == null">
+                veuillez-vous se connecter pour Commenter
       </div>
 
 

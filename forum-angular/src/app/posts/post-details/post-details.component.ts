@@ -5,6 +5,7 @@ import { Post } from './../../DTO/Post';
 import { FormBuilder } from '@angular/forms';
 import { ServicesService } from './../../services.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-details',
@@ -28,11 +29,18 @@ export class PostDetailsComponent implements OnInit {
 
   });
 
-  constructor(private formBuilder: FormBuilder,private servicesService:ServicesService) { }
+  constructor(private router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
-    this.idPost = 1;
-    this.idUser = 2;
+    if(localStorage.getItem('userId') != undefined){
+      this.router.navigate(["/"]);
+      this.idUser = localStorage.getItem('userId');
+
+    }
+
+
+    this.idPost = this.route.snapshot.paramMap.get('id');
+
 
     this.servicesService.GetPostById(this.idPost).subscribe((post) => {
       if(post != null){

@@ -2,6 +2,7 @@ import { ServicesService } from './../services.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
 import { User } from '../DTO/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,10 +19,14 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(private formBuilder: FormBuilder,private servicesService:ServicesService) { }
+  constructor(private router: Router,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
 
+    if(localStorage.getItem('userId') != undefined){
+      this.router.navigate(["/"]);
+
+    }
 
 
   }
@@ -31,6 +36,9 @@ export class LoginComponent implements OnInit {
     user.password =  this.importForm?.value?.password
     this.servicesService.UserLogin(user).subscribe((ListUsers)=>{
       if(ListUsers != null){
+
+        localStorage.setItem('userId', ListUsers["id"].toString());
+        this.router.navigate(["/"]);
 
       }
       else{

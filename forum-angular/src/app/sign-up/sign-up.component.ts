@@ -2,6 +2,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ServicesService } from './../services.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../DTO/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,9 +19,13 @@ export class SignUpComponent implements OnInit {
     username : ['',Validators.required],
 
   });
-  constructor(private formBuilder: FormBuilder , private servicesService: ServicesService) { }
+  constructor(private router: Router,private formBuilder: FormBuilder , private servicesService: ServicesService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('userId') != undefined){
+      this.router.navigate(["/"]);
+
+    }
   }
   CreateUser(){
     var user = new User();
@@ -29,7 +34,9 @@ export class SignUpComponent implements OnInit {
     user.username =  this.importForm?.value?.username
     this.servicesService.CreateUser(user).subscribe((user)=>{
       if(user["id"] != null){
-       console.log(user);
+       localStorage.setItem('userId', user["id"].toString());
+       this.router.navigate(["/"]);
+
       }
       else{
         this.message = "login ou mot de passe incorrecte "

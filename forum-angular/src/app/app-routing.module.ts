@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'post-details', component: PostDetailsComponent },
+  { path: 'post-details/:id', component: PostDetailsComponent },
   { path: 'user-details', component: UserDetailsComponent },
 
 ];

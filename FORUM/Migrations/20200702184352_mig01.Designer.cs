@@ -2,14 +2,16 @@
 using FORUM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FORUM.Migrations
 {
     [DbContext(typeof(ForumContext))]
-    partial class ForumContextModelSnapshot : ModelSnapshot
+    [Migration("20200702184352_mig01")]
+    partial class mig01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
