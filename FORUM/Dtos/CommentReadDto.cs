@@ -16,9 +16,7 @@ namespace FORUM.Dtos
          public int userId { get; set; }
          public int commentId { get; set; }
 
-        public Comment comment { get; set; }
         
-        public Post post { get; set; }
 
          public UserReadDto user { get; set; }
 

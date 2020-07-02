@@ -17,18 +17,14 @@
             <div class="categori49">
               <span class="form-description43305">Category* </span>
               <label>
-                <input list="browsers" name="myBrowser" class="list-category53" /></label>
-              <datalist id="browsers">
-                <option value="Front_End Web Developer">
-                <option value="Back-End develoer">
-                <option value="Andriod Developer">
-                <option value="Web Application">
-                <option value="System Analyst">
-                <option value="Security">
-              </datalist>
+                <select class="list-category53" formControlName="categoryId" id="browsers">
+                   <option list="browsers" name="myBrowser" *ngFor="let item of this.listCategory" [ngValue]="item.id" >{{item.value}}</option>
+                </select>
+              </label>
+
             </div>
             <div class="button-group-addfile3239">
-              <span class="form-description23993">Attactment*</span><input type="file" name="ffile"
+              <span class="form-description23993">Attactment*</span><input #fileInput (change)="onFileChanged($event)" type="file" name="ffile"
                 class="question-ttile3226">
 
             </div>

@@ -10,6 +10,8 @@ namespace FORUM.Profiles
        public CommentsProfile()
        {
            CreateMap<Comment,CommentReadDto>();
+           CreateMap<CommentCreateDto,Comment>();
+
        }
         
     }

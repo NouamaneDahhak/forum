@@ -4,19 +4,16 @@ namespace FORUM.Dtos
 {
     public class CommentCreateDto
     {
-         public int Id { get; set; }
-         public string title { get; set; }
+        public int Id { get; set; }
+         public int postId { get; set; }
+         public int userId { get; set; }
 
          public string content { get; set; }
          public string img { get; set; }
 
          public string date { get; set; }
-         public string views { get; set; }
-         public string nbComment { get; set; }
 
-         public int userId { get; set; }
+         public int commentId { get; set; }
 
-
-         public User user { get; set; }
     }
 }

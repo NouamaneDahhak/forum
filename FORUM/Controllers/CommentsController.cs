@@ -30,17 +30,17 @@ namespace FORUM.Controllers
         }
         
         [HttpGet("{id}")]
-        public ActionResult <PostReadDto> GetPostById(int id){
+        public ActionResult <PostReadDto> GetCategoryByPostId(int id){
 
                   var postItem = _repository.GetCommentById(id);
                   if(postItem != null){
-                    return Ok(_mapper.Map<PostReadDto>(postItem));
+                    return Ok(_mapper.Map<IEnumerable<CommentReadDto>>(postItem));
                   }
                   return NotFound();
             
         }
         [HttpPost]
-        public ActionResult <CommentReadDto> CreatePost(CommentCreateDto _CommentCreateDto){
+        public ActionResult <CommentReadDto> CreateComment(CommentCreateDto _CommentCreateDto){
 
                   var commentModel = _mapper.Map<Comment>(_CommentCreateDto);
                   _repository.createComment(commentModel);

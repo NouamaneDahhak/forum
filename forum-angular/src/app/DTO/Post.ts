@@ -1,3 +1,5 @@
+import { Comment } from './Comment';
+import { Category } from './Category';
 import { User } from './User';
 export class Post
 {
@@ -10,8 +12,14 @@ export class Post
      public  date :string
      public  views:string
      public  nbComment:string
+     public  categoryId:number
+
 
      public  user:User
+
+     public  category:Category
+     public  comments:Array<Comment>
+
 
      constructor(){
 

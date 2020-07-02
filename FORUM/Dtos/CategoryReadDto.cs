@@ -12,7 +12,6 @@ namespace FORUM.Dtos
          public string img { get; set; }
       
         
-         public List<Post> posts { get; set; }
 
 
 

@@ -21,7 +21,7 @@ namespace FORUM.Data
                 if(comment == null){
                         throw new ArgumentNullException(nameof(comment));
         
-                    }
+                }
                     _context.Comments.Add(comment); 
          }
 
@@ -30,19 +30,20 @@ namespace FORUM.Data
         public IEnumerable<Comment> GetAppComments()
         {
                     return _context.Comments
-                            .Include(p => p.post)
                             .Include(u => u.user)
-                            .Include(c => c.comment)
                             .ToList();      
         }
 
        
-        public Comment GetCommentById(int id)
+        public IEnumerable<Comment> GetCommentById(int id)
         {
                 return _context.Comments
                  .Include(u => u.user)
-                 .FirstOrDefault(p => p.Id == id);
+                 .Where(p => p.postId == id)
+                 .ToList();      
+
         }
+
 
 
         public bool SaveChanges()

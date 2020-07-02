@@ -23,7 +23,9 @@ namespace FORUM.Models
 
          public User user { get; set; }
          public Category category { get; set; }
+         public List<Comment> comments { get; set; }
 
+        
 
          
 
