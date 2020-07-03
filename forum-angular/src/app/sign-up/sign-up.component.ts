@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
     email:  ['',Validators.required],
     password : ['',Validators.required],
     username : ['',Validators.required],
+    categoryId : ['',Validators.required],
 
   });
   constructor(private router: Router,private formBuilder: FormBuilder , private servicesService: ServicesService) { }
@@ -32,6 +33,7 @@ export class SignUpComponent implements OnInit {
     user.email    =  this.importForm?.value?.email
     user.password =  this.importForm?.value?.password
     user.username =  this.importForm?.value?.username
+    user.Usertype =  this.importForm?.value?.categoryId
 
     this.servicesService.CreateUser(user).subscribe((user)=>{
       if(user["id"] != null){

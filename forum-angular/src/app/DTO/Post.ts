@@ -21,6 +21,8 @@ export class Post
 
      public  category:Category
      public  comments:Array<Comment>
+     public  epingler :boolean
+
 
 
      constructor(){

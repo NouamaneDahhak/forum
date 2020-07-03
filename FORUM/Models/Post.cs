@@ -9,6 +9,7 @@ namespace FORUM.Models
 
          [Key]
          public int Id { get; set; }
+         public bool epingler { get; set; }
         
          public int userId  { get; set; }
          public int categoryId { get; set; }

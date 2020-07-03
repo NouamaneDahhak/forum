@@ -52,6 +52,7 @@ export class AddPostComponent implements OnInit {
     post.views =  "0"
     post.nblike = 0
     post.nbdislike = 0
+    post.epingler = false
     this.servicesService.CreatePost(post).subscribe((post)=>{
       if(post["id"] != null){
        console.log(post);

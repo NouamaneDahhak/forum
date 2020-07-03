@@ -12,6 +12,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'byCategory/:idCategory', component: HomeComponent ,data : {data : 'category'} },
+  { path: 'byUser/:idUser', component: HomeComponent ,data : {data : 'user'} },
   { path: 'add-post', component: AddPostComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'contact', component: ContactComponent },

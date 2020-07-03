@@ -1,5 +1,8 @@
+import { Category } from './../DTO/Category';
+import { ServicesService } from './../services.service';
+import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'header',
@@ -9,8 +12,10 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   login:boolean = true;
+  listCategory:Array<Category>;
+  idUser = null;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userId') == undefined){
@@ -18,14 +23,19 @@ export class HeaderComponent implements OnInit {
     }
     else{
       this.login = false;
+      this.idUser= localStorage.getItem('userId');
 
     }
+    this.servicesService.GetAllCategory().subscribe((categorys) => {
+      this.listCategory = categorys
+    })
+
   }
   Logout(){
     localStorage.clear();
     this.router.navigate(["/"]);
     this.login = true;
-
+    location.reload();
 
   }
   Login(){

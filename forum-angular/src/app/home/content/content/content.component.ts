@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { Post } from './../../../DTO/Post';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'home-content',
@@ -13,21 +14,46 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class ContentComponent implements OnInit {
   idUser = null;
+  idCategory = null;
 
   listPosts:Array<Post>
   reactions:Array<Reaction> ;
   countLiked:number = 0
   countDisLiked:number = 0
-  constructor(private _snackBar: MatSnackBar,private formBuilder: FormBuilder , private servicesService: ServicesService) { }
+  constructor(private router: Router,private route: ActivatedRoute,private _snackBar: MatSnackBar,private formBuilder: FormBuilder , private servicesService: ServicesService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userId') != undefined){
       this.idUser = localStorage.getItem('userId');
 
     }
-    this.servicesService.GetAllPosts().subscribe((posts)=>{
-      this.listPosts = posts as Array<Post>
-    })
+    console.log();
+
+    if(this.route.snapshot.data['data'] == undefined){
+      this.servicesService.GetAllPosts().subscribe((posts)=>{
+        this.listPosts = posts as Array<Post>
+      })
+    }
+    else if(this.route.snapshot.data['data'] == "category")
+    {
+      this.idCategory = this.route.snapshot.paramMap.get('idCategory');
+
+      this.servicesService.GetAppPostsByCategory(this.idCategory).subscribe((posts)=>{
+        this.listPosts = posts as Array<Post>
+      })
+    }
+    else if(this.route.snapshot.data['data'] == "user")
+    {
+      this.servicesService.GetAppPostsByUser(this.route.snapshot.paramMap.get('idUser')).subscribe((posts)=>{
+        this.listPosts = posts as Array<Post>
+      })
+    }
+
+
+
+
+
+
 
   }
 
@@ -51,6 +77,27 @@ export class ContentComponent implements OnInit {
         var _post = post as Post
         console.log(_post);
         this.likeDislike(like,post.id);
+
+      })
+    }
+  }
+  epingler(post:Post,epingler){
+    if(this.idUser == null){
+      alert("Login First");
+    }
+    else{
+
+
+
+      var EditedPost = new Post();
+      EditedPost =  post;
+      if(EditedPost.epingler == true){ EditedPost.epingler = false } else {EditedPost.epingler = true;}
+
+
+
+      this.servicesService.UpdatePost(post.id,EditedPost).subscribe((post)=>{
+        var _post = post as Post
+        console.log(_post);
 
       })
     }

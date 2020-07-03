@@ -1,3 +1,6 @@
+import { FormBuilder } from '@angular/forms';
+import { ServicesService } from './../../services.service';
+import { Post } from 'src/app/DTO/Post';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideHomeComponent implements OnInit {
 
-  constructor() { }
+  idUser = null;
+
+
+
+  constructor(private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+
   }
+
 
 }

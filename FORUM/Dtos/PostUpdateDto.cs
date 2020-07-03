@@ -6,6 +6,7 @@ namespace FORUM.Dtos
     public class PostUpdateDto
     {
          public string title { get; set; }
+         public bool epingler { get; set; }
 
          public string content { get; set; }
          public string img { get; set; }

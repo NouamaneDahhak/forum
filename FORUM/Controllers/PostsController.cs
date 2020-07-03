@@ -28,6 +28,16 @@ namespace FORUM.Controllers
             var postItems = _repository.GetAppPosts();
             return Ok(_mapper.Map<IEnumerable<PostReadDto>>(postItems));
         }
+        [HttpGet("byCategory/{id}")]
+        public ActionResult <IEnumerable<PostReadDto>> GetAppPostsByCategory(int id){
+            var postItems = _repository.GetAppPostsByCategory(id);
+            return Ok(_mapper.Map<IEnumerable<PostReadDto>>(postItems));
+        }
+        [HttpGet("byUser/{id}")]
+        public ActionResult <IEnumerable<PostReadDto>> GetAppPostsByUser(int id){
+            var postItems = _repository.GetAppPostsByUser(id);
+            return Ok(_mapper.Map<IEnumerable<PostReadDto>>(postItems));
+        }
         
         [HttpGet("{id}")]
         public ActionResult <PostReadDto> GetPostById(int id){

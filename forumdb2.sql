@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2020 at 10:30 PM
+-- Generation Time: Jul 03, 2020 at 10:52 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -38,8 +38,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`Id`, `value`, `img`) VALUES
-(1, 'video', NULL),
-(2, 'audio', NULL);
+(1, 'FORUM', NULL),
+(2, 'AGORA', NULL),
+(3, 'Salle Modérateur', NULL),
+(4, 'CATALOGUE', NULL);
 
 -- --------------------------------------------------------
 
@@ -81,18 +83,21 @@ CREATE TABLE `posts` (
   `userId` int(11) NOT NULL,
   `categoryId` int(11) NOT NULL,
   `nbdislike` int(11) NOT NULL DEFAULT 0,
-  `nblike` int(11) NOT NULL DEFAULT 0
+  `nblike` int(11) NOT NULL DEFAULT 0,
+  `epingler` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`) VALUES
-(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1, 0, 0),
-(2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0),
-(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 1, 0, 0),
-(5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0);
+INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`) VALUES
+(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1, 0, 0, 0),
+(2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0),
+(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 2, 0, 0, 0),
+(5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0),
+(6, 'title 5', 'content5', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 3, 0, 0, 0),
+(7, 'title 6', 'content 6', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 4, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -148,7 +153,10 @@ INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`, `Usertype`) VA
 (3, 'user3', 'user3', 'user3', 'images.png', NULL),
 (4, 'user4', 'user4', 'user4', 'images.png', NULL),
 (5, 'user5', 'user5', 'user5', NULL, NULL),
-(6, 'user6', 'user6', 'user6', NULL, NULL);
+(6, 'user6', 'user6', 'user6', NULL, NULL),
+(7, 'user5', 'user5', 'user5', NULL, NULL),
+(8, 'user7', 'user7', 'user7', NULL, 'Membre'),
+(9, 'aaa', 'aaa', 'aaa', NULL, 'Administrateur');
 
 -- --------------------------------------------------------
 
@@ -171,7 +179,9 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20200701092009_InitialCreate3', '3.1.5'),
 ('20200701163552_InitialMigration4', '3.1.5'),
 ('20200702150219_imm6', '3.1.5'),
-('20200702184352_mig01', '3.1.5');
+('20200702184352_mig01', '3.1.5'),
+('20200703100111_imm02', '3.1.5'),
+('20200703203650_em04', '3.1.5');
 
 --
 -- Indexes for dumped tables
@@ -227,7 +237,7 @@ ALTER TABLE `__efmigrationshistory`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -239,7 +249,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `reaction`
@@ -251,7 +261,7 @@ ALTER TABLE `reaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

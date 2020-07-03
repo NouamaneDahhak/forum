@@ -10,6 +10,20 @@
         <input type="password" placeholder="Password*"/>
         <input formControlName="password" type="con-password" placeholder="Confirm Password*"/>
 
+        <div class="categori">
+          <span class="form-description43305">Category* </span>
+          <label>
+            <select class="list-category53" formControlName="categoryId" id="browsers">
+               <option list="browsers" name="myBrowser"  value="Moderateur avancé" >Moderateur avancé</option>
+               <option list="browsers" name="myBrowser"  value="Modérateur" >Modérateur</option>
+               <option list="browsers" name="myBrowser"  value="Membre" >Membre</option>
+               <option list="browsers" name="myBrowser"  value="Invité" >Invité</option>
+               <option list="browsers" name="myBrowser"  value="Administrateur" >Administrateur</option>
+
+            </select>
+          </label>
+
+        </div>
         <div class="text-center">
           <div (click)="CreateUser()" class="button">Sign Up</div>
           <br><br>

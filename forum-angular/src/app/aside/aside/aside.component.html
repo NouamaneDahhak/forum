@@ -1,94 +1,16 @@
-<div class="categori-part329">
-  <h4>Category</h4>
-  <ul>
-      <li><a href="#">web developer</a></li>
-      <li><a href="#">Andriod developer</a></li>
-      <li><a href="#">grapics developer</a></li>
-      <li><a href="#">web developer</a></li>
-  </ul>
-</div>
-<!--             social part -->
-
-<!--              login part-->
-<div class="login-part2389">
+<div [formGroup]="importForm" *ngIf="idUser == null"  class="login-part2389">
   <h4>Login</h4>
   <div class="input-group300"> <span><i class="fa fa-user" aria-hidden="true"></i></span>
-      <input type="text" class="namein309" placeholder="Username"> </div>
+      <input formControlName="email" type="text" class="namein309" placeholder="Username"> </div>
   <div class="input-group300"> <span><i class="fa fa-lock" aria-hidden="true"></i></span>
-      <input type="password" class="passin309" placeholder="Name"> </div>
-  <a href="#">
-      <button type="button" class="userlogin320">Log In</button>
+      <input formControlName="password" type="password" class="passin309" placeholder="Name"> </div>
+  <i>{{message}}</i>
+      <a href="#">
+      <button (click)=" UserLogin()" type="button" class="userlogin320">Log In</button>
   </a>
   <div class="rememberme">
-      <label>
-          <input type="checkbox" checked="checked"> Remember Me</label> <a href="#" class="resbutton3892">Register</a> </div>
+    <a href="#" class="resbutton3892" routerLink="/sign-up">Register</a> </div>
+    <br>
 </div>
-<!--              highest part-->
-<div class="highest-part302">
-  <h4>Highest Points</h4>
-  <div class="pints-wrapper">
-      <div class="left-user3898">
-          <a href="#"><img src="assets/image/images.png" alt="Image"></a>
-          <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a> </div>
-      </div> <span class="points-details938">
-<a href="#"><h5>Ahmed Hasan</h5></a>
-<a href="#" class="designetion439">Pundit</a>
-<p>206 points</p>
-</span> </div>
-  <hr>
-  <div class="pints-wrapper">
-      <div class="left-user3898">
-          <a href="#"><img src="assets/image/images.png" alt="Image"></a>
-          <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a> </div>
-      </div> <span class="points-details938">
-<a href="#"><h5>Ahmed Hasan</h5></a>
-<a href="#" class="designetion439">Pundit</a>
-<p>206 points</p>
-</span> </div>
-  <hr>
-  <div class="pints-wrapper">
-      <div class="left-user3898">
-          <a href="#"><img src="assets/image/images.png" alt="Image"></a>
-          <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a> </div>
-      </div> <span class="points-details938">
-<a href="#"><h5>Ahmed Hasan</h5></a>
-<a href="#" class="designetion439">Pundit</a>
-<p>206 points</p>
-</span> </div>
-  <hr>
-  <div class="pints-wrapper">
-      <div class="left-user3898">
-          <a href="#"><img src="assets/image/images.png" alt="Image"></a>
-          <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a> </div>
-      </div> <span class="points-details938">
-<a href="#"><h5>Ahmed Hasan</h5></a>
-<a href="#" class="designetion439">Pundit</a>
-<p>206 points</p>
-</span> </div>
-  <hr>
-  <div class="pints-wrapper">
-      <div class="left-user3898">
-          <a href="#"><img src="assets/image/images.png" alt="Image"></a>
-          <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a> </div>
-      </div> <span class="points-details938">
-<a href="#"><h5>Ahmed Hasan</h5></a>
-<a href="#" class="designetion439">Pundit</a>
-<p>206 points</p>
-</span> </div>
-</div>
-<!--               end of Highest points -->
-<!--          start tags part-->
 
-<!--          End tags part-->
-<!--        start recent post  -->
-<div class="recent-post3290">
-  <h4>Recent Post</h4>
-  <div class="post-details021"> <a href="#"><h5>How much do web developers</h5></a>
-      <p>I am thinking of pursuing web developing as a career & was ...</p> <small style="color: #848991">July 16, 2017</small> </div>
-  <hr>
-  <div class="post-details021"> <a href="#"><h5>How much do web developers</h5></a>
-      <p>I am thinking of pursuing web developing as a career & was ...</p> <small style="color: #848991">July 16, 2017</small> </div>
-  <hr>
-  <div class="post-details021"> <a href="#"><h5>How much do web developers</h5></a>
-      <p>I am thinking of pursuing web developing as a career & was ...</p> <small style="color: #848991">July 16, 2017</small> </div>
-</div>
+

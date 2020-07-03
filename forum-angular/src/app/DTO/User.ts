@@ -6,6 +6,8 @@ export class User
        public password:string
        public email :string
        public img:string
+       public Usertype:string
+
 
        public Posts :Array<Post>
 

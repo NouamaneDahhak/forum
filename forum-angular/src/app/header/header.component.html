@@ -44,20 +44,12 @@
                   <ul class="nav navbar-nav"> </ul>
                   <ul class="nav navbar-nav navbar-right">
                       <li><a routerLink="/">Home</a></li>
-                      <li><a routerLink="/add-post" >Ask Question</a></li>
-
-                      <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Page <span class="caret"></span></a>
-                          <ul class="dropdown-menu animated zoomIn">
-                              <li><a href="logIn.html" target="_blank">Login</a></li>
-                              <li><a href="contact_us.html" target="_blank"> Contact Us</a></li>
-                              <li><a href="ask_question.html" target="_blank"> Ask Question </a></li>
-                              <li><a href="post-deatils.html" target="_blank"> post-Details </a></li>
-                              <li><a href="#" target="_blank"> User Question </a></li>
-                              <li><a href="#" target="_blank"> Category </a></li>
-                              <li><a href="#" target="_blank"> 404 </a></li>
-                          </ul>
-                      </li>
-                      <li><a href="contact_us.html" target="_blank">Contact us</a></li>
+                      <li><a [routerLink]="['/byCategory', 1]"  >FORUM</a></li>
+                      <li><a [routerLink]="['/byCategory', 2]"  >AGORA</a></li>
+                      <li><a [routerLink]="['/byCategory', 3]"  >Salle Modérateur</a></li>
+                      <li><a [routerLink]="['/byCategory', 4]"  >CATALOGUE</a></li>
+                      <li *ngIf="idUser != null" ><a [routerLink]="['/post-details', idUser]"  >MES SUJETS</a></li>
+                      <li><a routerLink="/add-post" >ADD POST</a></li>
                   </ul>
               </div>
               <!-- /.navbar-collapse -->

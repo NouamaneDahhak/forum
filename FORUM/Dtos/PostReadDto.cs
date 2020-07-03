@@ -6,6 +6,8 @@ namespace FORUM.Dtos
     public class PostReadDto
     {
          public int Id { get; set; }
+          public bool epingler { get; set; }
+
          public string title { get; set; }
 
          public string content { get; set; }

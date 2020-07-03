@@ -44,6 +44,24 @@ namespace FORUM.Data
             .Include(com => com.comments)
             .ToList();
          }
+        public IEnumerable<Post> GetAppPostsByCategory(int idCategory )
+        {
+            return _context.Posts
+            .Where(p=> p.categoryId == idCategory )
+            .Include(p => p.user)
+            .Include(c => c.category)
+            .Include(com => com.comments)
+            .ToList();
+         }
+        public IEnumerable<Post> GetAppPostsByUser(int user )
+        {
+            return _context.Posts
+            .Where(p=> p.userId == user )
+            .Include(p => p.user)
+            .Include(c => c.category)
+            .Include(com => com.comments)
+            .ToList();
+         }
 
         public Post GetPostById(int id)
         {
@@ -62,5 +80,7 @@ namespace FORUM.Data
         {
            return (_context.SaveChanges() >= 0); 
         }
+
+       
     }
 }
