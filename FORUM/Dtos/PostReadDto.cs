@@ -21,6 +21,10 @@ namespace FORUM.Dtos
          public int userId  { get; set; }
          public int categoryId { get; set; }
 
+         
+         public int nblike { get; set; }
+         public int nbdislike { get; set; }
+
          public List<CommentReadDto> comments { get; set; }
 
 

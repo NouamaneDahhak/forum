@@ -48,6 +48,9 @@ export class ServicesService {
 
   CreatePost(Post){
     return this.http.post<Post>('/api/posts',Post)
+  }
+  UpdatePost(id,Post){
+    return this.http.post<Post>('/api/posts/update/'+id,Post)
 
   }
 

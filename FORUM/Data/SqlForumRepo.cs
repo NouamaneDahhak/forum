@@ -13,6 +13,7 @@ namespace FORUM.Data
         public SqlForumRepo(ForumContext context)
         {
             _context = context;
+
             
         }
 
@@ -23,6 +24,16 @@ namespace FORUM.Data
  
              }
              _context.Posts.Add(post);
+        }
+        public void UpdatePost(Post post)
+        {
+
+
+             if(post == null){
+                 throw new ArgumentNullException(nameof(post));
+ 
+             }
+             _context.Posts.Update(post);
         }
 
         public IEnumerable<Post> GetAppPosts()

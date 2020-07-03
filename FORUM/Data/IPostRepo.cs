@@ -9,6 +9,7 @@ namespace FORUM.Data
         Post GetPostById(int id);
 
         void createPost(Post post);
+        void UpdatePost(Post post);
 
         bool SaveChanges();
 

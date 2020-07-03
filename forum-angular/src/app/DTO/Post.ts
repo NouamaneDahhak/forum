@@ -14,6 +14,8 @@ export class Post
      public  nbComment:string
      public  categoryId:number
 
+     public  nblike:number
+     public  nbdislike:number
 
      public  user:User
 

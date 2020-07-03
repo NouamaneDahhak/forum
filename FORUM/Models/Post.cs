@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-
+using System.ComponentModel.DataAnnotations.Schema ;
 namespace FORUM.Models
 {
     public class Post
@@ -24,8 +24,9 @@ namespace FORUM.Models
 
          public int nblike { get; set; }
          public int nbdislike { get; set; }
-
+         [ForeignKey("userId")]
          public User user { get; set; }
+         [ForeignKey("categoryId")]
          public Category category { get; set; }
          public List<Comment> comments { get; set; }
 

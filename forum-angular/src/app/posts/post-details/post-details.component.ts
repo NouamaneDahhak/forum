@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { ServicesService } from './../../services.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-post-details',
@@ -32,11 +33,7 @@ export class PostDetailsComponent implements OnInit {
   constructor(private router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('userId') != undefined){
-      this.router.navigate(["/"]);
-      this.idUser = localStorage.getItem('userId');
 
-    }
 
 
     this.idPost = this.route.snapshot.paramMap.get('id');
@@ -45,6 +42,17 @@ export class PostDetailsComponent implements OnInit {
     this.servicesService.GetPostById(this.idPost).subscribe((post) => {
       if(post != null){
         this.post= post;
+        if(localStorage.getItem('userId') != undefined || localStorage.getItem('userId') != null ){
+          this.idUser = localStorage.getItem('userId');
+          var view :String =  (this.post?.views== null)?   0+"" :this.post?.views ;
+
+          var EditedPost = new Post();
+          EditedPost =  this.post;
+          EditedPost.views = (Number(view)+1) + "";
+
+          this.servicesService.UpdatePost(this.post.id,EditedPost).subscribe((post)=>{
+          })
+        }
       }
       else{
       }
@@ -82,11 +90,21 @@ export class PostDetailsComponent implements OnInit {
     comment.content = this.importForm?.value?.content;
     comment.postId=this.idPost;
     comment.userId=this.idUser;
-    comment.date = "02/03/2012"
+    comment.date =formatDate(new Date(), 'dd/MM/yyyy  h:mm', 'en');
 
     this.servicesService.CreateComment(comment).subscribe((comment) => {
+
       if(comment != null){
-        location.reload();
+        (this.post.nbComment == null)? this.post.nbComment = 0+"" :this.post.nbComment ;
+
+        var EditedPost = new Post();
+        EditedPost =  this.post;
+        EditedPost.nbComment= (Number(EditedPost.nbComment)+1) + "";
+
+        this.servicesService.UpdatePost(this.post.id,EditedPost).subscribe((post)=>{
+          location.reload();
+
+        })
       }
       else{
       }
@@ -109,12 +127,29 @@ export class PostDetailsComponent implements OnInit {
     }
   }
 
-  likeDislike(bool){
+  likeDislike(like){
     var reaction = new Reaction();
     reaction.postId= this.idPost;
     reaction.userId= this.idUser;
     reaction.date  = "02/03/2012";
-    reaction.like  = bool;
+    reaction.like  = like;
+
+
+
+
+    (this.post.nblike == null)? this.post.nblike = 0 :this.post.nblike ;
+    (this.post.nbdislike == null)? this.post.nbdislike = 0 :this.post.nblike ;
+
+    var EditedPost = new Post();
+    EditedPost =  this.post;
+    if(like == true){ EditedPost.nblike = this.post.nblike+1; } else {EditedPost.nbdislike = this.post.nbdislike+1;}
+
+
+
+    this.servicesService.UpdatePost(this.post.id,EditedPost).subscribe((post)=>{
+    })
+
+
     this.servicesService.CreateReaction(reaction).subscribe((reaction) => {
       if(reaction != null){
         location.reload();
@@ -124,6 +159,9 @@ export class PostDetailsComponent implements OnInit {
       }
 
     })
+
+
+
   }
 
 }

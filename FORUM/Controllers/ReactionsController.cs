@@ -31,7 +31,7 @@ namespace FORUM.Controllers
         
        
         [HttpPost]
-        public ActionResult <ReactionReadDto> CreateComment(ReactionCreateDto _ReactionCreateDto){
+        public ActionResult <ReactionReadDto> CreateReaction(ReactionCreateDto _ReactionCreateDto){
 
                   var commentModel = _mapper.Map<Reaction>(_ReactionCreateDto);
                   _repository.createReaction(commentModel);

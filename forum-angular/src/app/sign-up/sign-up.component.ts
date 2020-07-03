@@ -32,6 +32,7 @@ export class SignUpComponent implements OnInit {
     user.email    =  this.importForm?.value?.email
     user.password =  this.importForm?.value?.password
     user.username =  this.importForm?.value?.username
+
     this.servicesService.CreateUser(user).subscribe((user)=>{
       if(user["id"] != null){
        localStorage.setItem('userId', user["id"].toString());
