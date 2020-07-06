@@ -14,10 +14,10 @@
                 placeholder="Enter your Name">
             </div>
 
-            <div class="categori49">
+            <div  class="categori49">
               <span class="form-description43305">Category* </span>
-              <label>
-                <select class="list-category53" formControlName="categoryId" id="browsers">
+              <label style="width: 100%;">
+                <select style="width: 100%;" class="list-category53" formControlName="categoryId" id="browsers">
                    <option list="browsers" name="myBrowser" *ngFor="let item of this.listCategory" [ngValue]="item.id" >{{item.value}}</option>
                 </select>
               </label>
@@ -29,8 +29,8 @@
 
             </div>
             <div class="details2-239">
-              <div class="col-md-12 nopadding">
-                <textarea formControlName="content" id="txtEditor"></textarea>
+              <div class="username-part940 col-md-12 nopadding">
+                <textarea style="width: 100%;height: 150px;" class="username-part940" formControlName="content" id="txtEditor"></textarea>
               </div>
             </div>
 
@@ -55,3 +55,5 @@
 </section>
 
 <footer></footer>
+
+

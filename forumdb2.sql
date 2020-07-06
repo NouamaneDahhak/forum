@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 10:52 PM
+-- Generation Time: Jul 06, 2020 at 06:13 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -92,11 +92,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`) VALUES
-(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1, 0, 0, 0),
+(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1, 0, 0, 1),
 (2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0),
 (4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 2, 0, 0, 0),
 (5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0),
-(6, 'title 5', 'content5', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 3, 0, 0, 0),
+(6, 'title 5', 'content5', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 3, 0, 0, 1),
 (7, 'title 6', 'content 6', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 4, 0, 0, 0);
 
 -- --------------------------------------------------------

@@ -17,5 +17,6 @@ namespace FORUM.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Reaction> Reaction { get; set; }
+        public DbSet<Group> Group { get; set; }
     }
 }
