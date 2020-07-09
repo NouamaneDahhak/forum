@@ -36,7 +36,7 @@
               {{post?.content}}
                <hr>
               <div class="post-footer29032">
-                  <div class="l-side2023"> <i class="fa fa-check check2" aria-hidden="true"> solved</i> <a href="#"><i class="fa fa-star star2" aria-hidden="true">  5</i></a> <i class="fa fa-folder folder2" aria-hidden="true"> {{post?.category.value}}</i> <i class="fa fa-clock-o clock2" aria-hidden="true"> {{post?.date}}</i> <a href="#"><i class="fa fa-commenting commenting2" aria-hidden="true"> {{post?.nbComment}}</i></a> <i class="fa fa-user user2" aria-hidden="true"> {{post?.views}}</i> </div>
+                  <div class="l-side2023"> <i class="fa fa-check check2" aria-hidden="true"> solved</i> <a href="#"><i class="fa fa-thumb-tack star2" aria-hidden="true">  5</i></a> <i class="fa fa-folder folder2" aria-hidden="true"> {{post?.category.value}}</i> <i class="fa fa-clock-o clock2" aria-hidden="true"> {{post?.date}}</i> <a href="#"><i class="fa fa-commenting commenting2" aria-hidden="true"> {{post?.nbComment}}</i></a> <i class="fa fa-user user2" aria-hidden="true"> {{post?.views}}</i> </div>
                   <div class="l-rightside39">
                       <button (click)="likeDislike(true)" type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i><span class="single-question-vote-result">{{post?.nblike}}</span> </button>
                       <button (click)="likeDislike(false)" type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">{{post?.nbdislike}}</span> </div>
@@ -88,12 +88,12 @@
           </div>
       </div>
       <div *ngIf="idUser != null"  [formGroup]="importForm" class="comment289-box">
-          <h3>Leave A Reply</h3>
+          <h3>Commenter</h3>
           <hr>
           <div class="row">
 
               <div class="post9320-box">
-                  <input formControlName="content" type="text" class="comment-input219882" placeholder="Enter Your Post"> </div>
+                  <input formControlName="content" type="text" class="comment-input219882" placeholder=""> </div>
               <button (click)="CreateComment()" type="button" class="pos393-submit">Commenter</button>
           </div>
       </div>

@@ -25,6 +25,17 @@ namespace FORUM.Data
              }
              _context.User.Add(user);
         }
+
+          public void UpdateUser(User user)
+        {
+
+
+             if(user == null){
+                 throw new ArgumentNullException(nameof(user));
+ 
+             }
+             _context.User.Update(user);
+        }
         public IEnumerable<User> GetAppUsers()
         {
             return _context.User

@@ -1,7 +1,7 @@
 import { Post } from "./Post"
 export class User
   {
-       public Id:number
+       public id:number
        public username:string
        public password:string
        public email :string
@@ -10,5 +10,19 @@ export class User
 
 
        public Posts :Array<Post>
+
+
+         public  nomEntreprise      :string;
+         public  nom                :string;
+         public  prenom             :string;
+         public  emailSecondaire    :string;
+         public  adresse            :string;
+         public  pays               :string;
+         public  region             :string;
+         public  codePostal         :string;
+         public  ville              :string;
+         public  telephone1         :string;
+         public  telephone2         :string;
+         public  metier             :string;
 
   }

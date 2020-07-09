@@ -1,22 +1,37 @@
+<header></header>
 <div class="modal-wrap">
 
   <div class="modal-bodies">
     <div class="modal-body modal-body-step-1 is-showing">
-      <div class="title">Sign Up</div>
-      <div class="description">Hello there, Register Form</div>
+      <div class="title"></div>
       <form [formGroup]="importForm">
         <input formControlName="username" type="text" placeholder="Username*"/>
-        <input formControlName="email" type="email" placeholder="E-Mail*"/>
         <input type="password" placeholder="Password*"/>
         <input formControlName="password" type="con-password" placeholder="Confirm Password*"/>
+        <input formControlName="nomEntreprise" type="text" placeholder="nomEntreprise*"/>
+        <input formControlName="Nom" type="text" placeholder="Nom*"/>
+        <input formControlName="prenom" type="text" placeholder="prenom*"/>
+        <input formControlName="email" type="email" placeholder="E-Mail*"/>
+        <input formControlName="emailSecondaire" type="email" placeholder="E-Mail*"/>
+        <input formControlName="adresse" type="text" placeholder="adresse*"/>
+        <input formControlName="pays" type="text" placeholder="pays*"/>
+        <input formControlName="Region" type="text" placeholder="Region*"/>
+        <input formControlName="codePostal" type="text" placeholder="codePostal*"/>
+        <input formControlName="ville" type="text" placeholder="ville*"/>
+        <input formControlName="telephone1" type="text" placeholder="telephone1*"/>
+        <input formControlName="telephone2" type="text" placeholder="telephone2*"/>
+        <input formControlName="metier" type="text" placeholder="metier*"/>
+
+
 
         <div class="categori">
           <span class="form-description43305">Category* </span>
           <label>
             <select class="list-category53" formControlName="categoryId" id="browsers">
+               <option list="browsers" name="myBrowser"  value="Entreprise" >Entreprise</option>
+               <option list="browsers" name="myBrowser"  value="Utilisateur" >Utilisateur</option>
                <option list="browsers" name="myBrowser"  value="Moderateur avancé" >Moderateur avancé</option>
                <option list="browsers" name="myBrowser"  value="Modérateur" >Modérateur</option>
-               <option list="browsers" name="myBrowser"  value="Membre" >Membre</option>
                <option list="browsers" name="myBrowser"  value="Invité" >Invité</option>
                <option list="browsers" name="myBrowser"  value="Administrateur" >Administrateur</option>
 

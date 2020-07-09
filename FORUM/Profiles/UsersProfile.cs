@@ -12,6 +12,8 @@ namespace FORUM.Profiles
            CreateMap<User,UserReadDto>();
            CreateMap<User,UserWithPostReadDto>();
            CreateMap<UserCreateDto,User>();
+           CreateMap<UserUpdateDto,User>();
+
 
        }
         

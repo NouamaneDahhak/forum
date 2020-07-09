@@ -1,3 +1,4 @@
+import { SearchProfilComponent } from './profile/search-profil/search-profil.component';
 import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -39,6 +40,7 @@ declare let $: any;
     PostDetailsComponent,
     SignUpComponent,
     UserDetailsComponent,
+    SearchProfilComponent
 
   ],
   imports: [

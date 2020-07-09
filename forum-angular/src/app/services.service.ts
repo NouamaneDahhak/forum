@@ -30,6 +30,9 @@ export class ServicesService {
   CreateUser(User){
     return this.http.post<User>('/api/users/register',User)
   }
+  UpdateUser(id,user){
+    return this.http.post<User>('/api/users/update/'+id,user)
+  }
   CreateReaction(Reaction){
     return this.http.post<Reaction>('/api/reactions',Reaction)
   }
@@ -48,6 +51,9 @@ export class ServicesService {
 
   GetPostById(id){
     return this.http.get<Post>('/api/posts/'+id)
+  }
+  GetUserById(id){
+    return this.http.get<User>('/api/users/'+id)
   }
   GetCategoryByPostId(id){
     return this.http.get<Array<Comment>>('/api/comments/'+id)

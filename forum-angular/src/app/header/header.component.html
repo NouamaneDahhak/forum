@@ -7,7 +7,7 @@
                   <div class="navbar-menu-left-side239">
                       <ul>
                           <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>Contact</a></li>
-                          <li><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i>Support</a></li>
+                          <li><a  routerLink="/search-profil" ><i class="fa fa-user" aria-hidden="true"></i>Chercher un Profil</a></li>
                           <li *ngIf="this.login" ><button (click)="Login()" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter </button></li>
                           <li *ngIf="!this.login" ><button (click)="Logout()" ><i class="fa fa-user" aria-hidden="true"></i>Se deconnecter</button></li>
                         </ul>
@@ -43,11 +43,11 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav"> </ul>
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a routerLink="/">Home</a></li>
-                      <li><a [routerLink]="['/byCategory', 1]"  >FORUM</a></li>
-                      <li><a [routerLink]="['/byCategory', 2]"  >AGORA</a></li>
-                      <li><a [routerLink]="['/byCategory', 3]"  >Salle Modérateur</a></li>
-                      <li><a [routerLink]="['/byCategory', 4]"  >CATALOGUE</a></li>
+                      <li><a  routerLink="/">Home</a></li>
+                      <li><a routerLink="/byCategory/1"   >FORUM</a></li>
+                      <li><a routerLink="/byCategory/2"  >AGORA</a></li>
+                      <li><a routerLink="/byCategory/3"  >Salle Modérateur</a></li>
+                      <li><a routerLink="/byCategory/4"  >CATALOGUE</a></li>
                       <li *ngIf="idUser != null" ><a [routerLink]="['/post-details', idUser]"  >MES SUJETS</a></li>
                       <li><a routerLink="/add-post" >ADD POST</a></li>
                   </ul>

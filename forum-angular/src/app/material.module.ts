@@ -25,6 +25,7 @@ import {MatTableModule} from "@angular/material/table";
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -41,6 +42,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatDatepickerModule,
     MatButtonToggleModule,
 
+
     MatButtonModule,
     MatTableModule,
     FormsModule,
@@ -56,6 +58,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatDialogModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatPaginatorModule,
+
 
   ],
   exports: [
@@ -82,6 +86,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatSortModule,
     MatButtonToggleModule,
     MatToolbarModule,
+    MatPaginatorModule,
+
   ]
 
 })

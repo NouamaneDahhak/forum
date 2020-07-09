@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DatePipe, formatDate } from '@angular/common';
 import { Category } from './../../../DTO/Category';
 import { Post } from './../../../DTO/Post';
@@ -24,7 +25,7 @@ export class AddPostComponent implements OnInit {
     userId : [1],
 
   });
-  constructor(private datePipe: DatePipe,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
+  constructor(private router:Router,private datePipe: DatePipe,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
     this.servicesService.GetAllCategory().subscribe((category) => {
@@ -55,7 +56,8 @@ export class AddPostComponent implements OnInit {
     post.epingler = false
     this.servicesService.CreatePost(post).subscribe((post)=>{
       if(post["id"] != null){
-       console.log(post);
+        this.router.navigate(["/post-details/"+post["id"]]);
+
       }
       else{
         this.message = "login ou mot de passe incorrecte "

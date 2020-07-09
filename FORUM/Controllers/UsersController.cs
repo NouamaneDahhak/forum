@@ -51,6 +51,23 @@ namespace FORUM.Controllers
                   return Ok(userItem);
             
         }
+        
+          [HttpPost("update/{id}")]
+        public ActionResult <UserReadDto>  UpdateUser(int id,UserUpdateDto _UserUpdateDto){
+               
+
+           
+                  var postItem = _repository.GetUserById(id);
+                  if(postItem == null){
+                      return NotFound();
+                  }
+                   _mapper.Map(_UserUpdateDto,postItem);
+                  _repository.UpdateUser(postItem);
+                  _repository.SaveChanges();
+                  return Ok(_mapper.Map<UserReadDto>(postItem));
+            
+        }
+
 
          [HttpPost("login")]
         public ActionResult <UserReadDto> UserLogin(User user){

@@ -42,6 +42,7 @@ namespace FORUM.Data
             .Include(p => p.user)
             .Include(c => c.category)
             .Include(com => com.comments)
+            .OrderByDescending(o=>o.Id)
             .ToList();
          }
         public IEnumerable<Post> GetAppPostsByCategory(int idCategory )
@@ -51,6 +52,8 @@ namespace FORUM.Data
             .Include(p => p.user)
             .Include(c => c.category)
             .Include(com => com.comments)
+            .OrderByDescending(o=>o.Id)
+
             .ToList();
          }
         public IEnumerable<Post> GetAppPostsByUser(int user )

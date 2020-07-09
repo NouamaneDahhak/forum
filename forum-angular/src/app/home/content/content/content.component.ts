@@ -36,7 +36,7 @@ export class ContentComponent implements OnInit {
     }
     else if(this.route.snapshot.data['data'] == "category")
     {
-      this.idCategory = this.route.snapshot.paramMap.get('idCategory');
+      this.idCategory = this.route.snapshot.data['id'];
 
       this.servicesService.GetAppPostsByCategory(this.idCategory).subscribe((posts)=>{
         this.listPosts = posts as Array<Post>

@@ -45,6 +45,10 @@ export class HeaderComponent implements OnInit {
 
 
   }
+  redirect(id){
+    this.router.navigate(["/byCategory/"+id]);
+
+  }
 
 
 }

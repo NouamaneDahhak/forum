@@ -10,6 +10,9 @@ namespace FORUM.Data
         User GetUserById(int id);
         User UserLogin(User user);
         void createUser(User user);
+        void UpdateUser(User user);
+
+        
         bool SaveChanges();
 
        

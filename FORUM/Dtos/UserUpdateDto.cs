@@ -1,21 +1,21 @@
-using System.Collections.Generic;
 using FORUM.Models;
+using System.ComponentModel.DataAnnotations.Schema ;
 
 namespace FORUM.Dtos
 {
-    public class UserWithPostReadDto{
- 
+    public class UserUpdateDto
 
-         public int Id { get; set; }
+    {
+          public int Id { get; set; }
          public string username { get; set; }
+         public string password { get; set; }
          public string email { get; set; }
          public string img { get; set; }
-
-         public List<PostReadDto> posts;
+         
 
          public string Usertype { get; set; }
 
-         public string nomEntreprise { get; set; }
+           public string nomEntreprise { get; set; }
          public string Nom { get; set; }
          public string prenom { get; set; }
          public string emailSecondaire { get; set; }
@@ -27,6 +27,9 @@ namespace FORUM.Dtos
          public string telephone1 { get; set; }
          public string telephone2 { get; set; }
          public string metier { get; set; }
+
+
+         
 
     }
 }
