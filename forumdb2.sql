@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2020 at 06:13 AM
+-- Generation Time: Jul 09, 2020 at 09:01 PM
 -- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- PHP Version: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,10 +38,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`Id`, `value`, `img`) VALUES
-(1, 'FORUM', NULL),
-(2, 'AGORA', NULL),
-(3, 'Salle Modérateur', NULL),
-(4, 'CATALOGUE', NULL);
+(1, 'video', NULL),
+(2, 'audio', NULL);
 
 -- --------------------------------------------------------
 
@@ -69,6 +67,19 @@ INSERT INTO `comments` (`Id`, `content`, `img`, `date`, `postId`, `userId`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `group`
+--
+
+CREATE TABLE `group` (
+  `Id` int(11) NOT NULL,
+  `title` tinyint(1) NOT NULL,
+  `date` longtext DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -92,12 +103,15 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`) VALUES
-(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '5', '5', 1, 1, 0, 0, 1),
+(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '7', '5', 1, 1, 0, 0, 0),
 (2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0),
-(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 2, 0, 0, 0),
+(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 1, 0, 0, 0),
 (5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0),
-(6, 'title 5', 'content5', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 3, 0, 0, 1),
-(7, 'title 6', 'content 6', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 4, 0, 0, 0);
+(6, 'titleaaa', 'content', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 1, 1, 0, 0, 0),
+(7, 'titleaaa', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0),
+(8, 'titleaaa', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0),
+(9, 'titlesss', 'content', 'blog-2-806x440.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0),
+(10, 'title', 'content', 'blog-2-806x440.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -140,23 +154,35 @@ CREATE TABLE `user` (
   `password` longtext DEFAULT NULL,
   `email` longtext DEFAULT NULL,
   `img` longtext DEFAULT NULL,
-  `Usertype` longtext DEFAULT NULL
+  `Usertype` longtext DEFAULT NULL,
+  `Nom` longtext DEFAULT NULL,
+  `Region` longtext DEFAULT NULL,
+  `adresse` longtext DEFAULT NULL,
+  `codePostal` longtext DEFAULT NULL,
+  `emailSecondaire` longtext DEFAULT NULL,
+  `metier` longtext DEFAULT NULL,
+  `nomEntreprise` longtext DEFAULT NULL,
+  `pays` longtext DEFAULT NULL,
+  `prenom` longtext DEFAULT NULL,
+  `telephone1` longtext DEFAULT NULL,
+  `telephone2` longtext DEFAULT NULL,
+  `ville` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`, `Usertype`) VALUES
-(1, 'user1', 'user1', 'user1', 'images.png', NULL),
-(2, 'user2', 'user2', 'user2', 'images.png', NULL),
-(3, 'user3', 'user3', 'user3', 'images.png', NULL),
-(4, 'user4', 'user4', 'user4', 'images.png', NULL),
-(5, 'user5', 'user5', 'user5', NULL, NULL),
-(6, 'user6', 'user6', 'user6', NULL, NULL),
-(7, 'user5', 'user5', 'user5', NULL, NULL),
-(8, 'user7', 'user7', 'user7', NULL, 'Membre'),
-(9, 'aaa', 'aaa', 'aaa', NULL, 'Administrateur');
+INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`, `Usertype`, `Nom`, `Region`, `adresse`, `codePostal`, `emailSecondaire`, `metier`, `nomEntreprise`, `pays`, `prenom`, `telephone1`, `telephone2`, `ville`) VALUES
+(1, 'user1-', 'jo', 'jo', NULL, NULL, 'a', 'jo', 'jo', 'jo', 'jo', 'jo', 'entr', 'jo', 'jo', 'jo', 'jo', 'jo'),
+(2, 'user2', NULL, NULL, 'images.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'user3', NULL, NULL, 'images.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'user4', 'user4', 'user4', 'images.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'user5', 'user5', 'user5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'user6', 'user6', 'user6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'aaaaaeeee', NULL, 'aaaa@aaaa.com', NULL, 'Administrateur', NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa'),
+(8, 'aaaa--', NULL, 'aaaa@aaaa.com', NULL, 'Administrateur', NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa1', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa'),
+(9, 'aaaa---', NULL, 'aaaa@aaaa.com', NULL, NULL, NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa');
 
 -- --------------------------------------------------------
 
@@ -181,7 +207,8 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20200702150219_imm6', '3.1.5'),
 ('20200702184352_mig01', '3.1.5'),
 ('20200703100111_imm02', '3.1.5'),
-('20200703203650_em04', '3.1.5');
+('20200703203650_em04', '3.1.5'),
+('20200709074321_mig03', '3.1.5');
 
 --
 -- Indexes for dumped tables
@@ -200,6 +227,13 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IX_Comments_postId` (`postId`),
   ADD KEY `IX_Comments_userId` (`userId`);
+
+--
+-- Indexes for table `group`
+--
+ALTER TABLE `group`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IX_Group_userId` (`userId`);
 
 --
 -- Indexes for table `posts`
@@ -237,7 +271,7 @@ ALTER TABLE `__efmigrationshistory`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -246,10 +280,16 @@ ALTER TABLE `comments`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `group`
+--
+ALTER TABLE `group`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `reaction`
@@ -273,6 +313,12 @@ ALTER TABLE `user`
 ALTER TABLE `comments`
   ADD CONSTRAINT `FK_Comments_Posts_postId` FOREIGN KEY (`postId`) REFERENCES `posts` (`Id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_Comments_User_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`Id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `group`
+--
+ALTER TABLE `group`
+  ADD CONSTRAINT `FK_Group_User_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`Id`);
 
 --
 -- Constraints for table `posts`
