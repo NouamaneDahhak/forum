@@ -26,6 +26,8 @@ namespace FORUM.Dtos
          
          public int nblike { get; set; }
          public int nbdislike { get; set; }
+         public int postId { get; set; }
+
 
          public List<CommentReadDto> comments { get; set; }
 

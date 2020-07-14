@@ -13,6 +13,8 @@ namespace FORUM.Models
         
          public int userId  { get; set; }
          public int categoryId { get; set; }
+         public int postId { get; set; }
+
 
          public string title { get; set; }
 
@@ -25,6 +27,7 @@ namespace FORUM.Models
 
          public int nblike { get; set; }
          public int nbdislike { get; set; }
+         public Post post { get; set; }
          [ForeignKey("userId")]
          public User user { get; set; }
          [ForeignKey("categoryId")]

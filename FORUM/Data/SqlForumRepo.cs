@@ -48,7 +48,29 @@ namespace FORUM.Data
         public IEnumerable<Post> GetAppPostsByCategory(int idCategory )
         {
             return _context.Posts
-            .Where(p=> p.categoryId == idCategory )
+            .Where(p=> p.categoryId == idCategory  && p.postId != 0 )
+            .Include(p => p.user)
+            .Include(c => c.category)
+            .Include(com => com.comments)
+            .OrderByDescending(o=>o.Id)
+
+            .ToList();
+         }
+        public IEnumerable<Post> GetAppPostsByGroup(int idCategory )
+        {
+            return _context.Posts
+            .Where(p=> p.postId == idCategory  && p.postId != 0 )
+            .Include(p => p.user)
+            .Include(c => c.category)
+            .Include(com => com.comments)
+            .OrderByDescending(o=>o.Id)
+
+            .ToList();
+         }
+        public IEnumerable<Post> GetAppGroupsByCategory(int idCategory )
+        {
+            return _context.Posts
+            .Where(p=> p.categoryId == idCategory && p.postId == 0 )
             .Include(p => p.user)
             .Include(c => c.category)
             .Include(com => com.comments)

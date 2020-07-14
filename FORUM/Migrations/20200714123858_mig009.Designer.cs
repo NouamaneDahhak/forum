@@ -3,14 +3,16 @@ using System;
 using FORUM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FORUM.Migrations
 {
     [DbContext(typeof(ForumContext))]
-    partial class ForumContextModelSnapshot : ModelSnapshot
+    [Migration("20200714123858_mig009")]
+    partial class mig009
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,9 +121,6 @@ namespace FORUM.Migrations
                     b.Property<int>("postId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("postId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("title")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -135,7 +134,7 @@ namespace FORUM.Migrations
 
                     b.HasIndex("categoryId");
 
-                    b.HasIndex("postId1");
+                    b.HasIndex("postId");
 
                     b.HasIndex("userId");
 
@@ -263,7 +262,9 @@ namespace FORUM.Migrations
 
                     b.HasOne("FORUM.Models.Post", "post")
                         .WithMany()
-                        .HasForeignKey("postId1");
+                        .HasForeignKey("postId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FORUM.Models.User", "user")
                         .WithMany("Posts")

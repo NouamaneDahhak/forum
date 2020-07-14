@@ -15,14 +15,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ContentComponent implements OnInit {
   idUser = null;
   idCategory = null;
+  idGroup = null;
 
   listPosts:Array<Post>
+  listGroup:Array<Post>
   reactions:Array<Reaction> ;
   countLiked:number = 0
   countDisLiked:number = 0
   constructor(private router: Router,private route: ActivatedRoute,private _snackBar: MatSnackBar,private formBuilder: FormBuilder , private servicesService: ServicesService) { }
 
   ngOnInit(): void {
+    this.idCategory = null;
+    this.idGroup = null;
     if(localStorage.getItem('userId') != undefined){
       this.idUser = localStorage.getItem('userId');
 
@@ -40,6 +44,20 @@ export class ContentComponent implements OnInit {
 
       this.servicesService.GetAppPostsByCategory(this.idCategory).subscribe((posts)=>{
         this.listPosts = posts as Array<Post>
+      })
+      this.servicesService.GetAppGroupsByCategory(this.idCategory).subscribe((posts)=>{
+        this.listGroup = posts as Array<Post>
+      })
+    }
+    else if(this.route.snapshot.data['data'] == "group")
+    {
+      this.idGroup = this.route.snapshot.paramMap.get('idGroup');
+
+      this.servicesService.GetAppPostsByGroups(this.idGroup).subscribe((posts)=>{
+        this.listPosts = posts as Array<Post>
+      })
+      this.servicesService.GetAppPostsByGroups(this.idGroup).subscribe((posts)=>{
+        this.listGroup = posts as Array<Post>
       })
     }
     else if(this.route.snapshot.data['data'] == "user")

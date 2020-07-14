@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.changeColor {
+  background:#982121;
+  color:#ecf0f1 !important;
+  }
+  .changeColor:hover {
+    background-:#982121;
+    color:#ecf0f1 !important;
+    }
+
+
+    .mat-card-header-text{
+      width: 100%;
+    }

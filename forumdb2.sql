@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2020 at 09:01 PM
+-- Generation Time: Jul 14, 2020 at 06:06 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -38,8 +38,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`Id`, `value`, `img`) VALUES
-(1, 'video', NULL),
-(2, 'audio', NULL);
+(1, 'FORUM', NULL),
+(2, 'AGORA', NULL),
+(3, 'Salle Modérateur', NULL),
+(4, 'CATALOGUE', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,23 +97,33 @@ CREATE TABLE `posts` (
   `categoryId` int(11) NOT NULL,
   `nbdislike` int(11) NOT NULL DEFAULT 0,
   `nblike` int(11) NOT NULL DEFAULT 0,
-  `epingler` tinyint(1) NOT NULL DEFAULT 0
+  `epingler` tinyint(1) NOT NULL DEFAULT 0,
+  `postId` int(11) NOT NULL,
+  `postId1` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`) VALUES
-(1, 'title ', 'content', 'blog-2-806x440.png', '02/03/1990', '7', '5', 1, 1, 0, 0, 0),
-(2, 'title 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0),
-(4, 'title 3', 'content3', 'blog-2-806x440.png', '02/03/1990', '5', '5', 2, 1, 0, 0, 0),
-(5, 'title 4', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0),
-(6, 'titleaaa', 'content', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 1, 1, 0, 0, 0),
-(7, 'titleaaa', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0),
-(8, 'titleaaa', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0),
-(9, 'titlesss', 'content', 'blog-2-806x440.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0),
-(10, 'title', 'content', 'blog-2-806x440.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0);
+INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`, `postId`, `postId1`) VALUES
+(1, 'group1', 'content', 'blog-2-806x440.png', '02/03/1990', '7', '5', 4, 2, 0, 0, 0, 0, NULL),
+(2, 'group 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL),
+(4, 'group3', 'content3', 'blog-2-806x440.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL),
+(5, 'group 5', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0, 0, NULL),
+(6, 'group4 ', 'content', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 4, 1, 0, 0, 0, 1, NULL),
+(7, 'group 6', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0, 0, NULL),
+(8, 'post 1-1', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0, 5, NULL),
+(9, 'post 1 -2', 'content', 'blog-2-806x440.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0, 5, NULL),
+(10, 'post 2 1 -1', 'content', 'blog-2-806x440.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0, 7, NULL),
+(11, 'post2 -2 ', 'content', 'blog-2-806x440.png', '14/07/2020 11:21', '0', '0', 1, 2, 0, 0, 0, 7, NULL),
+(12, 'group 1 cat 2', 'group 1 cat 2', 'blog-2-806x440.png', '14/07/2020 2:06', '0', '0', 1, 2, 0, 0, 0, 7, NULL),
+(13, 'group1 cat 2 2 eme post', 'group1 cat 2 2 eme post', 'blog-2-806x440.png', '14/07/2020 2:07', '0', '0', 1, 2, 0, 0, 0, 1, NULL),
+(17, 'title', NULL, NULL, '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
+(18, 'title', NULL, NULL, '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
+(19, 'group cat 1', NULL, NULL, '14/07/2020 2:27', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
+(20, 'titlepost new grou cat 1', 'post new grou cat 1', 'blog-2-806x440.png', '14/07/2020 2:27', '1', '0', 1, 1, 0, 0, 0, 19, NULL),
+(21, 'salle mopderateur g 1', NULL, NULL, '14/07/2020 2:40', '0', '0', 4, 3, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -174,7 +186,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`, `Usertype`, `Nom`, `Region`, `adresse`, `codePostal`, `emailSecondaire`, `metier`, `nomEntreprise`, `pays`, `prenom`, `telephone1`, `telephone2`, `ville`) VALUES
-(1, 'user1-', 'jo', 'jo', NULL, NULL, 'a', 'jo', 'jo', 'jo', 'jo', 'jo', 'entr', 'jo', 'jo', 'jo', 'jo', 'jo'),
+(1, 'user1-', 'jo', NULL, NULL, 'Modérateur', 'a', 'jo', 'jo', 'jo', 'jo', 'jo', 'entr', 'jo', 'jo', 'jo', 'jo', 'jo'),
 (2, 'user2', NULL, NULL, 'images.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 'user3', NULL, NULL, 'images.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'user4', 'user4', 'user4', 'images.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -208,7 +220,15 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20200702184352_mig01', '3.1.5'),
 ('20200703100111_imm02', '3.1.5'),
 ('20200703203650_em04', '3.1.5'),
-('20200709074321_mig03', '3.1.5');
+('20200709074321_mig03', '3.1.5'),
+('20200714104040_mig003', '3.1.5'),
+('20200714123755_mig008', '3.1.5'),
+('20200714123858_mig009', '3.1.5'),
+('20200714124252_mig0010', '3.1.5'),
+('20200714124609_mig0011', '3.1.5'),
+('20200714124716_mig0012', '3.1.5'),
+('20200714125348_mig0015', '3.1.5'),
+('20200714125507_mig0016', '3.1.5');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +261,8 @@ ALTER TABLE `group`
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IX_Posts_userId` (`userId`),
-  ADD KEY `IX_Posts_categoryId` (`categoryId`);
+  ADD KEY `IX_Posts_categoryId` (`categoryId`),
+  ADD KEY `IX_Posts_postId1` (`postId1`);
 
 --
 -- Indexes for table `reaction`
@@ -271,7 +292,7 @@ ALTER TABLE `__efmigrationshistory`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -289,7 +310,7 @@ ALTER TABLE `group`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `reaction`
@@ -325,6 +346,7 @@ ALTER TABLE `group`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `FK_Posts_Category_categoryId` FOREIGN KEY (`categoryId`) REFERENCES `category` (`Id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Posts_Posts_postId1` FOREIGN KEY (`postId1`) REFERENCES `posts` (`Id`),
   ADD CONSTRAINT `FK_Posts_User_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`Id`) ON DELETE CASCADE;
 
 --

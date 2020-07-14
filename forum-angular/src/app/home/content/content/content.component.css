@@ -1,0 +1,18 @@
+.scroll {
+  margin:4px, 4px;
+  padding:4px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

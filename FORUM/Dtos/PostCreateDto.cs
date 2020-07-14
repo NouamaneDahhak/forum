@@ -19,6 +19,9 @@ namespace FORUM.Dtos
 
           public bool epingler { get; set; }
 
+         public int postId { get; set; }
+
+
 
          
 

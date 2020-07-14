@@ -18,6 +18,7 @@ export class Post
      public  nbdislike:number
 
      public  user:User
+     public  postId:number
 
      public  category:Category
      public  comments:Array<Comment>

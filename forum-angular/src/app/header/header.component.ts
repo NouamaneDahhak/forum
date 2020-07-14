@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   listCategory:Array<Category>;
   idUser = null;
 
-  constructor(private router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
+  constructor(public router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userId') == undefined){

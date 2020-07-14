@@ -20,6 +20,8 @@ namespace FORUM.Dtos
 
          public int userId  { get; set; }
          public int categoryId { get; set; }
+         public int postId { get; set; }
+
 
          
 

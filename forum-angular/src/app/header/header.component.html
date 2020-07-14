@@ -29,7 +29,6 @@
       </div>
   </div>
 
-
   <!-- ==========header mega navbar=======-->
   <div class="top-menu-bottom932">
       <nav class="navbar navbar-default">
@@ -43,13 +42,11 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav"> </ul>
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a  routerLink="/">Home</a></li>
-                      <li><a routerLink="/byCategory/1"   >FORUM</a></li>
-                      <li><a routerLink="/byCategory/2"  >AGORA</a></li>
-                      <li><a routerLink="/byCategory/3"  >Salle Modérateur</a></li>
-                      <li><a routerLink="/byCategory/4"  >CATALOGUE</a></li>
-                      <li *ngIf="idUser != null" ><a [routerLink]="['/post-details', idUser]"  >MES SUJETS</a></li>
-                      <li><a routerLink="/add-post" >ADD POST</a></li>
+                      <li [ngClass]="{'changeColor': this.router.url === '/byCategory/1'}" ><a  routerLink="/byCategory/1"   >FORUM</a></li>
+                      <li [ngClass]="{'changeColor': this.router.url === '/byCategory/2'}" ><a routerLink="/byCategory/2"  >AGORA</a></li>
+                      <li [ngClass]="{'changeColor': this.router.url === '/byCategory/3'}" ><a routerLink="/byCategory/3"  >Salle Modérateur</a></li>
+                      <li [ngClass]="{'changeColor': this.router.url === '/byCategory/4'}" ><a routerLink="/byCategory/4"  >CATALOGUE</a></li>
+                      <li [ngClass]="{'changeColor': this.router.url === '/byUser'}"  *ngIf="idUser != null" ><a [routerLink]="['/byUser', idUser]"  >MES SUJETS</a></li>
                   </ul>
               </div>
               <!-- /.navbar-collapse -->

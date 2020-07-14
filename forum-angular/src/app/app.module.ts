@@ -1,3 +1,4 @@
+import { AddGroupComponent } from './posts/group/add-group/add-group.component';
 import { SearchProfilComponent } from './profile/search-profil/search-profil.component';
 import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,7 +41,8 @@ declare let $: any;
     PostDetailsComponent,
     SignUpComponent,
     UserDetailsComponent,
-    SearchProfilComponent
+    SearchProfilComponent,
+    AddGroupComponent
 
   ],
   imports: [

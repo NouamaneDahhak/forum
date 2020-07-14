@@ -45,6 +45,12 @@ export class ServicesService {
   GetAppPostsByCategory(idCategory){
     return this.http.get<Array<Post>>('/api/posts/byCategory/'+idCategory)
   }
+  GetAppPostsByGroups(idGroup){
+    return this.http.get<Array<Post>>('/api/posts/byGroup/'+idGroup)
+  }
+  GetAppGroupsByCategory(idCategory){
+    return this.http.get<Array<Post>>('/api/posts/groups/byCategory/'+idCategory)
+  }
   GetAppPostsByUser(idUser){
     return this.http.get<Array<Post>>('/api/posts/byUser/'+idUser)
   }

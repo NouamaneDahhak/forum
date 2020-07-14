@@ -1,3 +1,4 @@
+import { AddGroupComponent } from './posts/group/add-group/add-group.component';
 import { SearchProfilComponent } from './profile/search-profil/search-profil.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { LoginComponent } from './login/login.component';
@@ -12,13 +13,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent ,data : {data : 'category',id:'1'}},
   { path: 'byCategory/1', component: HomeComponent ,data : {data : 'category',id:'1'} },
   { path: 'byCategory/2', component: HomeComponent ,data : {data : 'category',id:'2'} },
   { path: 'byCategory/3', component: HomeComponent ,data : {data : 'category',id:'3'} },
   { path: 'byCategory/4', component: HomeComponent ,data : {data : 'category',id:'4'} },
+  { path: 'byGroup/:idGroup/:idCategory', component: HomeComponent ,data : {data : 'group'} },
   { path: 'byUser/:idUser', component: HomeComponent ,data : {data : 'user'} },
-  { path: 'add-post', component: AddPostComponent },
+  { path: 'add-post/:idGroup/:idCategory', component: AddPostComponent },
+  { path: 'add-group', component: AddGroupComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },

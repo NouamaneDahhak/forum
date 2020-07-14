@@ -7,6 +7,8 @@ namespace FORUM.Data
     {
         IEnumerable<Post> GetAppPosts();
         IEnumerable<Post> GetAppPostsByCategory(int idCategory);
+        IEnumerable<Post> GetAppPostsByGroup(int idCategory);
+        IEnumerable<Post> GetAppGroupsByCategory(int idCategory);
         IEnumerable<Post> GetAppPostsByUser(int idCategory);
         Post GetPostById(int id);
 

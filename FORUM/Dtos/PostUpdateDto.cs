@@ -17,6 +17,8 @@ namespace FORUM.Dtos
          public int nblike { get; set; }
          public int nbdislike { get; set; }
          public int categoryId { get; set; }
+         public int postId { get; set; }
+
 
 
 
