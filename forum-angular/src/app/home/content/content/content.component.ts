@@ -16,6 +16,7 @@ export class ContentComponent implements OnInit {
   idUser = null;
   idCategory = null;
   idGroup = null;
+  title = null;
 
   listPosts:Array<Post>
   listGroup:Array<Post>
@@ -27,6 +28,7 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
     this.idCategory = null;
     this.idGroup = null;
+    this.title = "";
     if(localStorage.getItem('userId') != undefined){
       this.idUser = localStorage.getItem('userId');
 
@@ -52,6 +54,7 @@ export class ContentComponent implements OnInit {
     else if(this.route.snapshot.data['data'] == "group")
     {
       this.idGroup = this.route.snapshot.paramMap.get('idGroup');
+      this.title = this.route.snapshot.paramMap.get('title');
 
       this.servicesService.GetAppPostsByGroups(this.idGroup).subscribe((posts)=>{
         this.listPosts = posts as Array<Post>
@@ -136,6 +139,16 @@ export class ContentComponent implements OnInit {
       }
 
     })
+  }
+  returnImage(img){
+    if(img == "default-img.png" || img == "avatar.png"){
+      return "assets/image/" + img;
+
+    }
+    else {
+      return "api/posts/getImage/" +img ;
+
+    }
   }
 
 

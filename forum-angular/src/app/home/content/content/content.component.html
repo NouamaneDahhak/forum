@@ -1,41 +1,27 @@
+<div  *ngIf="idGroup != null">
+  <a [routerLink]="['/add-post', idGroup,this.route.snapshot.paramMap.get('idCategory'),title]"  class="form-control">Ajouter Un sujet dans {{title}}</a>
+</div>
 <mat-tab-group mat-align-tabs="center">
-  <mat-tab label="First">
-    <div  *ngIf="idGroup != null">
-      <a [routerLink]="['/add-post', idGroup,this.route.snapshot.paramMap.get('idCategory')]"  class="form-control">Add Post</a>
-    </div>
-
-    <div  *ngIf="idCategory != 4 && idCategory != null">
-      <mat-list class="scroll">
-        <div mat-subheader>Groups</div>
-        <mat-list-item  *ngFor="let group of listGroup">
-          <mat-icon mat-list-icon><a [routerLink]="['/byGroup', group?.id,idCategory]">folder</a> </mat-icon>
-          <div mat-line><a [routerLink]="['/byGroup', group?.id,idCategory]">{{group.title}}</a> </div>
-          <div mat-line> {{group.date }} </div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-
-      </mat-list>
-    </div>
 
 
-  </mat-tab>
-  <mat-tab label="Second">
+  <mat-tab label="Non epingler">
     <div *ngIf="idCategory != 4 || idGroup != null" id="main">
 
       <mat-grid-list cols="2" rowHeight="2:3">
-        <mat-grid-tile *ngFor="let item of this.listPosts" >
-          <mat-card class="example-card">
+        <div *ngFor="let item of this.listPosts" >
+        <mat-grid-tile *ngIf="!item.epingler"  >
+          <mat-card  class="example-card">
             <mat-card-header >
-              <div mat-card-avatar class="example-header-image"></div>
+              <div mat-card-avatar class=""> <img mat-card-image [src]="returnImage(item.user.img)" alt="Photo of a Shiba Inu"></div>
               <mat-card-title  class="d-flex justify-content-between ">
                 <div>
-                {{item.user.nom}}
+                {{item.user.username}}
                 </div>
                 <a  (click)="epingler(item,true)" ><i *ngIf="item.epingler"  class="fa fa-thumb-tack" aria-hidden="true"></i><i *ngIf="!item.epingler"  class="fa fa-stack-exchange" aria-hidden="true"></i> </a>
               </mat-card-title>
               <mat-card-subtitle>{{item.title}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <img mat-card-image [src]="returnImage(item.img)" alt="Photo of a Shiba Inu">
             <mat-card-content>
               <p>
                 {{item?.content?.substring(0, 100)}}....
@@ -63,7 +49,65 @@
             </mat-card-actions>
           </mat-card>
         </mat-grid-tile>
+      </div>
 
+
+      </mat-grid-list>
+    </div>
+
+  </mat-tab>
+
+
+
+
+  <mat-tab  label="Epingler">
+
+
+    <div *ngIf="idCategory != 4 || idGroup != null" id="main">
+
+      <mat-grid-list cols="2" >
+        <div *ngFor="let item of this.listPosts" >
+        <mat-grid-tile *ngIf="item.epingler"  >
+          <mat-card  class="example-card">
+            <mat-card-header >
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title  class="d-flex justify-content-between ">
+                <div>
+                {{item.user.nom}}
+                </div>
+                <a  (click)="epingler(item,true)" ><i *ngIf="item.epingler"  class="fa fa-thumb-tack" aria-hidden="true"></i><i *ngIf="!item.epingler"  class="fa fa-stack-exchange" aria-hidden="true"></i> </a>
+              </mat-card-title>
+              <mat-card-subtitle>{{item.title}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image  [src]="returnImage(item.img)" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                {{item?.content?.substring(0, 100)}}....
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+
+
+
+              <div class="row">
+
+                <div class="ques-icon-info3293">
+                   <a ><i class="fa fa-folder" aria-hidden="true"> {{item?.category?.value}}</i></a> <a ><i class="fa fa-clock-o" aria-hidden="true"> {{item?.date}}</i></a>
+                        <a type="button" class=""><i class="fa fa-comment" aria-hidden="true">  {{item?.nbComment}}</i></a>
+
+                        <a type="button" class=""> <i class="fa fa-user-circle-o" aria-hidden="true"> {{item?.views}}</i> </a>
+
+                   <div class="l-rightside39">
+                    <a (click)="like(item,true)"  type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i><span class="single-question-vote-result">{{item?.nblike}}</span> </a>
+                    <a  (click)="like(item,false)" type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></a> <span class="single-question-vote-result">{{item?.nbdislike}}</span>
+                   </div>
+                </div>
+              </div>
+
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
 
 
       </mat-grid-list>
@@ -71,166 +115,9 @@
 
 
   </mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
+
 </mat-tab-group>
 
-
-<div *ngIf="idCategory != 4 || idGroup != null" id="main">
-  <div  *ngIf="idGroup != null">
-    <a [routerLink]="['/add-post', idGroup,this.route.snapshot.paramMap.get('idCategory')]"  class="form-control">Add Post</a>
-  </div>
-
-  <div  *ngIf="idCategory != 4 && idCategory != null">
-    <mat-list class="scroll">
-      <div mat-subheader>Groups</div>
-      <mat-list-item  *ngFor="let group of listGroup">
-        <mat-icon mat-list-icon><a [routerLink]="['/byGroup', group?.id,idCategory]">folder</a> </mat-icon>
-        <div mat-line><a [routerLink]="['/byGroup', group?.id,idCategory]">{{group.title}}</a> </div>
-        <div mat-line> {{group.date }} </div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-
-    </mat-list>
-  </div>
-  <input id="tab1" type="radio" name="tabs" checked>
-  <label for="tab1">TOUS LES SUJETS</label>
-  <input id="tab2" type="radio" name="tabs">
-  <label for="tab2">SUJETS EPINGLES</label>
-  <input id="tab3" type="radio" name="tabs">
-  <label for="tab3">SUJETS </label>
-  <section  *ngFor="let item of this.listPosts" id="content1">
-         <!--Recent Question Content Section -->
-      <div class="question-type2033">
-          <div class="row">
-              <div class="col-md-1">
-                  <div class="left-user12923 left-user12923-repeat">
-                      <a [routerLink]="['/byUser', item?.userId]" href="#"><img src="assets/image/images.png" alt="image"> </a> <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a> </div>
-              </div>
-              <div class="col-md-9">
-                  <div class="right-description893">
-                      <div id="que-hedder2983">
-                          <h3><a [routerLink]="['/post-details', item?.id]"  >{{item?.title}}</a></h3> </div>
-                      <div class="ques-details10018">
-                          <p>{{item?.content?.substring(0, 40)}}....</p>
-                      </div>
-                      <hr>
-                      <div class="ques-icon-info3293">
-                        <a  (click)="epingler(item,true)" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"> 5 </i> </a> <a ><i class="fa fa-folder" aria-hidden="true"> {{item?.category?.value}}</i></a> <a href="#"><i class="fa fa-clock-o" aria-hidden="true"> {{item?.date}}</i></a>
-                        <div class="l-rightside39">
-                          <button (click)="like(item,true)"  type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i><span class="single-question-vote-result">{{item?.nblike}}</span> </button>
-                          <button  (click)="like(item,false)" type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">{{item?.nbdislike}}</span> </div>
-                      </div>
-
-                    </div>
-              </div>
-              <div class="col-md-2">
-                  <div class="ques-type302">
-                      <a href="#">
-                          <button type="button" class="q-type238"><i class="fa fa-comment" aria-hidden="true">  {{item?.nbComment}}</i></button>
-                      </a>
-                      <a href="#">
-                          <button type="button" class="q-type23 button-ques2973"> <i class="fa fa-user-circle-o" aria-hidden="true"> {{item?.views}}</i> </button>
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <div *ngFor="let item of this.listPosts" id="content2">
-  <section *ngIf="item.epingler"   >
-    <!--Recent Question Content Section -->
- <div   class="question-type2033">
-     <div class="row">
-         <div class="col-md-1">
-             <div class="left-user12923 left-user12923-repeat">
-                 <a [routerLink]="['/byUser', item?.userId]" href="#"><img src="assets/image/images.png" alt="image"> </a> <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a> </div>
-         </div>
-         <div class="col-md-9">
-             <div class="right-description893">
-                 <div id="que-hedder2983">
-                     <h3><a [routerLink]="['/post-details', item?.id]"  >{{item?.title}}</a></h3> </div>
-                 <div class="ques-details10018">
-                     <p>{{item?.content?.substring(0, 40)}}....</p>
-                 </div>
-                 <hr>
-                 <div class="ques-icon-info3293">
-                   <a  (click)="epingler(item,true)" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"> 5 </i> </a> <a href="#"><i class="fa fa-folder" aria-hidden="true"> {{item?.category?.value}}</i></a> <a href="#"><i class="fa fa-clock-o" aria-hidden="true"> {{item?.date}}</i></a> <a href="#"></a> <a href="#"><i class="fa fa-bug" aria-hidden="true"> Report</i></a>
-                   <div class="ques-type302">
-                    <a href="#">
-                        <button type="button" class="q-type238"><i class="fa fa-comment" aria-hidden="true">  {{item?.nbComment}}</i></button>
-                    </a>
-                    <a href="#">
-                        <button type="button" class="q-type23 button-ques2973"> <i class="fa fa-user-circle-o" aria-hidden="true"> {{item?.views}}</i> </button>
-                    </a>
-                </div>
-                   <div class="l-rightside39">
-                     <button (click)="like(item,true)"  type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i><span class="single-question-vote-result">{{item?.nblike}}</span> </button>
-                     <button  (click)="like(item,false)" type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">{{item?.nbdislike}}</span>
-                    </div>
-
-                 </div>
-
-               </div>
-         </div>
-         <div class="col-md-2">
-             <div class="ques-type302">
-                 <a href="#">
-                     <button type="button" class="q-type238"><i class="fa fa-comment" aria-hidden="true">  {{item?.nbComment}}</i></button>
-                 </a>
-                 <a href="#">
-                     <button type="button" class="q-type23 button-ques2973"> <i class="fa fa-user-circle-o" aria-hidden="true"> {{item?.views}}</i> </button>
-                 </a>
-             </div>
-         </div>
-     </div>
- </div>
-</section>
-</div>
-
-<div *ngFor="let item of this.listPosts" id="content3">
-  <section *ngIf="!item.epingler"  >
-
-
-<div   class="question-type2033">
-   <div class="row">
-       <div class="col-md-1">
-           <div class="left-user12923 left-user12923-repeat">
-               <a [routerLink]="['/byUser', item?.userId]" href="#"><img src="assets/image/images.png" alt="image"> </a> <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a> </div>
-       </div>
-       <div class="col-md-9">
-           <div class="right-description893">
-               <div id="que-hedder2983">
-                   <h3><a [routerLink]="['/post-details', item?.id]"  >{{item?.title}}</a></h3> </div>
-               <div class="ques-details10018">
-                   <p>{{item?.content?.substring(0, 40)}}....</p>
-               </div>
-               <hr>
-               <div class="ques-icon-info3293">
-                 <a  (click)="epingler(item,true)" href="#"><i class="fa fa-thumb-tack" aria-hidden="true"> 5 </i> </a> <a href="#"><i class="fa fa-folder" aria-hidden="true"> {{item?.category?.value}}</i></a> <a href="#"><i class="fa fa-clock-o" aria-hidden="true"> {{item?.date}}</i></a> <a href="#"></a> <a href="#"><i class="fa fa-bug" aria-hidden="true"> Report</i></a>
-                 <div class="l-rightside39">
-                   <button (click)="like(item,true)"  type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i><span class="single-question-vote-result">{{item?.nblike}}</span> </button>
-                   <button  (click)="like(item,false)" type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">{{item?.nbdislike}}</span> </div>
-               </div>
-
-             </div>
-       </div>
-       <div class="col-md-2">
-           <div class="ques-type302">
-               <a href="#">
-                   <button type="button" class="q-type238"><i class="fa fa-comment" aria-hidden="true">  {{item?.nbComment}}</i></button>
-               </a>
-               <a href="#">
-                   <button type="button" class="q-type23 button-ques2973"> <i class="fa fa-user-circle-o" aria-hidden="true"> {{item?.views}}</i> </button>
-               </a>
-           </div>
-       </div>
-   </div>
-</div>
-</section>
-</div>
-  <!--  End of content-1------>
-
-</div>
 
 
 <div *ngIf="idCategory == 4 && idCategory != null && idGroup == null" >

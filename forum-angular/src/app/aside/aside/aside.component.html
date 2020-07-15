@@ -13,4 +13,26 @@
     <br>
 </div>
 
+<div  *ngIf="idGroup != null && this.idUser != null">
+  <a [routerLink]="['/add-post', idGroup,this.route.snapshot.paramMap.get('idCategory')]"  class="form-control">Add Post</a>
+</div>
+
+<div  *ngIf="idCategory != 4 && idCategory != null && this.idUser != null">
+  <mat-list class="scroll">
+    <div mat-subheader>Groups {{groupDans}}</div>
+    <mat-list-item  *ngFor="let group of listGroup">
+      <mat-icon mat-list-icon><a [routerLink]="['/byGroup', group?.id,group.categoryId,group.title]">folder</a> </mat-icon>
+      <div mat-line><a [routerLink]="['/byGroup', group?.id,group.categoryId,group.title]">{{group.title}}</a>
+        <a *ngIf="this.idUser != null"  [routerLink]="['/add-post', group.id,group.categoryId,group.title]" class="float-right" ><i class="fa fa-plus" aria-hidden="true"></i> </a>
+
+
+      </div>
+      <div mat-line> {{group.date }} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+  </mat-list>
+</div>
+
+
 

@@ -1,8 +1,11 @@
 <header></header>
-<section class="main-content920 d-flex justify-content-center ">
+<section class="main-content920 d-flex justify-content-center row">
 
 
-
+  <div class="mt-5 mb-5 col-8 ">
+    <mat-label>Filter</mat-label>
+    <input class="text-color" matInput (keyup)="applyFilter($event)" placeholder="Ex. nom,nom entreprise ..." #input>
+  </div>
 
   <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8 col-10">
 

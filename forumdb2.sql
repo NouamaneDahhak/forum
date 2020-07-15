@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2020 at 06:06 PM
+-- Generation Time: Jul 15, 2020 at 05:51 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -107,23 +107,33 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`, `postId`, `postId1`) VALUES
-(1, 'group1', 'content', 'blog-2-806x440.png', '02/03/1990', '7', '5', 4, 2, 0, 0, 0, 0, NULL),
-(2, 'group 2', 'content 2', 'blog-2-806x440.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL),
-(4, 'group3', 'content3', 'blog-2-806x440.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL),
-(5, 'group 5', 'content 4', 'blog-2-806x440.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0, 0, NULL),
-(6, 'group4 ', 'content', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 4, 1, 0, 0, 0, 1, NULL),
-(7, 'group 6', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0, 0, NULL),
-(8, 'post 1-1', 'contentaa', 'blog-2-806x440.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0, 5, NULL),
-(9, 'post 1 -2', 'content', 'blog-2-806x440.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0, 5, NULL),
-(10, 'post 2 1 -1', 'content', 'blog-2-806x440.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0, 7, NULL),
-(11, 'post2 -2 ', 'content', 'blog-2-806x440.png', '14/07/2020 11:21', '0', '0', 1, 2, 0, 0, 0, 7, NULL),
-(12, 'group 1 cat 2', 'group 1 cat 2', 'blog-2-806x440.png', '14/07/2020 2:06', '0', '0', 1, 2, 0, 0, 0, 7, NULL),
-(13, 'group1 cat 2 2 eme post', 'group1 cat 2 2 eme post', 'blog-2-806x440.png', '14/07/2020 2:07', '0', '0', 1, 2, 0, 0, 0, 1, NULL),
-(17, 'title', NULL, NULL, '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
-(18, 'title', NULL, NULL, '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
-(19, 'group cat 1', NULL, NULL, '14/07/2020 2:27', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
-(20, 'titlepost new grou cat 1', 'post new grou cat 1', 'blog-2-806x440.png', '14/07/2020 2:27', '1', '0', 1, 1, 0, 0, 0, 19, NULL),
-(21, 'salle mopderateur g 1', NULL, NULL, '14/07/2020 2:40', '0', '0', 4, 3, 0, 0, 0, 0, NULL);
+(1, 'group1', 'content', 'default-img.png', '02/03/1990', '7', '5', 4, 2, 0, 0, 0, 0, NULL),
+(2, 'group 2', 'content 2', 'default-img.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL),
+(4, 'group3', 'content3', 'default-img.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL),
+(5, 'group 5', 'content 4', 'default-img.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0, 0, NULL),
+(6, 'group4 ', 'content', 'default-img.png', '09/07/2020 4:09', '0', '0', 4, 1, 0, 0, 0, 1, NULL),
+(7, 'group 6', 'contentaa', 'default-img.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0, 0, NULL),
+(8, 'post 1-1', 'contentaa', 'default-img.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0, 5, NULL),
+(9, 'post 1 -2', 'content', 'default-img.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0, 5, NULL),
+(10, 'post 2 1 -1', 'content', 'default-img.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0, 7, NULL),
+(11, 'post2 -2 ', 'content', 'default-img.png', '14/07/2020 11:21', '0', '0', 1, 2, 0, 0, 1, 7, NULL),
+(12, 'group 1 cat 2', 'group 1 cat 2', 'default-img.png', '14/07/2020 2:06', '0', '0', 1, 2, 0, 0, 0, 7, NULL),
+(13, 'group1 cat 2 2 eme post', 'group1 cat 2 2 eme post', 'default-img.png', '14/07/2020 2:07', '0', '0', 1, 2, 0, 0, 1, 1, NULL),
+(17, 'title', NULL, 'default-img.png', '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
+(18, 'title', NULL, 'default-img.png', '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
+(19, 'group cat 1', NULL, 'default-img.png', '14/07/2020 2:27', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
+(20, 'titlepost new grou cat 1', 'post new grou cat 1', 'default-img.png', '14/07/2020 2:27', '1', '0', 1, 1, 1, 1, 1, 19, NULL),
+(21, 'salle mopderateur g 1', NULL, 'default-img.png', '14/07/2020 2:40', '0', '0', 4, 3, 0, 0, 0, 0, NULL),
+(22, 'group 5', 'content 6', 'default-img.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL),
+(23, 'group7', 'content3', 'default-img.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL),
+(24, 'title group 5', 'content title group 5', 'default-img.png', '15/07/2020 8:35', '1', '0', 1, 1, 0, 0, 0, 22, NULL),
+(26, 'titleaa', 'contentaaa', 'default-img.png', '15/07/2020 12:23', '4', '0', 1, 1, 0, 0, 0, 23, NULL),
+(27, 'new  1', 'new 1', 'default-img.png', '15/07/2020 12:34', '3', '0', 1, 1, 0, 0, 0, 23, NULL),
+(28, 'title', 'content', 'default-img.png', '15/07/2020 12:36', '2', '0', 1, 1, 0, 0, 0, 23, NULL),
+(29, 'title', 'content', 'default-img.png', '15/07/2020 12:37', '2', '0', 1, 1, 0, 0, 0, 23, NULL),
+(30, 'title', 'content', 'default-img.png', '15/07/2020 12:40', '2', '0', 1, 1, 0, 0, 0, 23, NULL),
+(31, 'title', 'content', 'default-img.png', '15/07/2020 12:40', '5', '0', 1, 1, 0, 0, 0, 23, NULL),
+(32, 'title', 'content', 'default-img.png', '15/07/2020 1:08', '3', '0', 1, 1, 0, 0, 0, 23, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,7 +162,9 @@ INSERT INTO `reaction` (`Id`, `like`, `date`, `postId`, `userId`) VALUES
 (7, 1, '02/03/2012', 1, 2),
 (8, 0, '02/03/2012', 1, 2),
 (9, 1, '02/03/2012', 1, 2),
-(10, 0, '02/03/2012', 1, 2);
+(10, 0, '02/03/2012', 1, 2),
+(11, 1, '02/03/2012', 20, 4),
+(12, 0, '02/03/2012', 20, 4);
 
 -- --------------------------------------------------------
 
@@ -186,15 +198,15 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Id`, `username`, `password`, `email`, `img`, `Usertype`, `Nom`, `Region`, `adresse`, `codePostal`, `emailSecondaire`, `metier`, `nomEntreprise`, `pays`, `prenom`, `telephone1`, `telephone2`, `ville`) VALUES
-(1, 'user1-', 'jo', NULL, NULL, 'Modérateur', 'a', 'jo', 'jo', 'jo', 'jo', 'jo', 'entr', 'jo', 'jo', 'jo', 'jo', 'jo'),
-(2, 'user2', NULL, NULL, 'images.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'user3', NULL, NULL, 'images.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'user4', 'user4', 'user4', 'images.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'user5', 'user5', 'user5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'user6', 'user6', 'user6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'aaaaaeeee', NULL, 'aaaa@aaaa.com', NULL, 'Administrateur', NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa'),
-(8, 'aaaa--', NULL, 'aaaa@aaaa.com', NULL, 'Administrateur', NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa1', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa'),
-(9, 'aaaa---', NULL, 'aaaa@aaaa.com', NULL, NULL, NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa');
+(1, 'user1-', NULL, NULL, 'avatar.png', 'Utilisateur', 'a', 'jo', 'jo', 'jo', 'jo', 'jo', 'entr', 'jo', 'jo', 'jo', 'jo', 'jo'),
+(2, 'user2', NULL, NULL, 'avatar.png', 'Invité', 'user2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user2', NULL, NULL, NULL),
+(3, 'user3', NULL, NULL, 'avatar.png', 'Invité', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'user4', 'user4', 'user4', 'avatar.png', 'Modérateur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'user5', 'user5', NULL, 'avatar.png', 'Moderateur avancé', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'user6', 'user6', 'user6', 'avatar.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'aaaaaeeee', NULL, 'aaaa@aaaa.com', 'avatar.png', 'Administrateur', NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa'),
+(8, 'aaaa--', NULL, 'aaaa@aaaa.com', 'avatar.png', 'Administrateur', NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa1', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa'),
+(9, 'aaaa---', NULL, 'aaaa@aaaa.com', 'avatar.png', NULL, NULL, 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa', 'aaaa');
 
 -- --------------------------------------------------------
 
@@ -310,13 +322,13 @@ ALTER TABLE `group`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `reaction`
 --
 ALTER TABLE `reaction`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`

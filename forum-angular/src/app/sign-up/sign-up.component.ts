@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { User } from './../DTO/User';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ServicesService } from './../services.service';
@@ -11,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-
+  imageUrl ="assets/image/avatar.png"
   edit=true;
   idUser = null;
     message = '';
@@ -34,6 +35,7 @@ export class SignUpComponent implements OnInit {
     telephone1      : ['',],
     telephone2      : ['',],
     metier          : ['',],
+    img          : ['',],
 
   });
   constructor(private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder , private servicesService: ServicesService) { }
@@ -52,7 +54,6 @@ export class SignUpComponent implements OnInit {
             this.importForm.get('email').setValue(user.email);
             this.importForm.get('password').setValue(user.password);
             this.importForm.get('username').setValue(user.username);
-            this.importForm.get('categoryId').setValue(user.Usertype);
             this.importForm.get('nomEntreprise').setValue(user.nomEntreprise);
             this.importForm.get('Nom').setValue(user.nom);
             this.importForm.get('prenom').setValue(user.prenom);
@@ -65,14 +66,30 @@ export class SignUpComponent implements OnInit {
             this.importForm.get('telephone1').setValue(user.telephone1);
             this.importForm.get('telephone2').setValue(user.telephone2);
             this.importForm.get('metier').setValue(user.metier);
+            this.importForm.get('categoryId').setValue(user.Usertype);
+            this.imageUrl ="api/posts/getImage/"+user.img;
+
       })
     }
   }
   CreateUser(){
+
+    var user =new User() ;
+
+    var imgUser=  "imgUser"+ this.idUser + "-" + formatDate(new Date(), 'dd_MM_yyyy_h_mm_ss', 'en');
+    if (this.fileList.length > 0) {
+      user.img =  imgUser;
+
+      const file = this.fileList[0];
+      const formData = new FormData();
+      formData.append('file', file,imgUser );
+      this.servicesService.UploadFile(formData).subscribe(()=>{
+      })
+    }
+
     if(this.edit){
 
       console.log(user);
-      var user =new User() ;
       user.id = this.importForm?.value?.id
       user.email            =  this.importForm?.value?.email
       user.password         =  this.importForm?.value?.password
@@ -128,5 +145,34 @@ export class SignUpComponent implements OnInit {
 
     })
   }
+
+
+
+
+ }
+
+ fileToupload :  File = null;
+
+ fileList : FileList =null;
+ onFileChanged(event) {
+
+   this.fileList = event.target.files;
+ }
+
+ handleFileInput(files :FileList){
+
+   this.fileToupload = files.item(0);
+   var reader = new FileReader();
+   reader.onload=(event:any)=>{
+     this.imageUrl = event.target.result;
+
+   }
+   var file = reader;
+   reader.readAsDataURL(this.fileToupload);
+
+ }
+
+
 }
-}
+
+

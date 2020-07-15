@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-
+using Microsoft.AspNetCore.Http;
 
 namespace FORUM
 {
@@ -88,10 +88,16 @@ namespace FORUM
             {
                 endpoints.MapControllers();
             });
+           
             // app.UseCors("AllowAll");
             // app.UseMvc();
 
                           app.UseCors(MyAllowSpecificOrigins);
+
+                          app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("MVC didn't find anything!");
+            });
 
         }
     }

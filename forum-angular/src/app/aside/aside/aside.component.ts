@@ -1,9 +1,10 @@
+import { Post } from 'src/app/DTO/Post';
 import { Category } from './../../DTO/Category';
 import { User } from './../../DTO/User';
 import { FormBuilder } from '@angular/forms';
 import { ServicesService } from './../../services.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
@@ -15,6 +16,11 @@ export class AsideComponent implements OnInit {
   message="";
   idUser = null;
   listCategory:Array<Category>;
+  listGroup:Array<Post>;
+  idCategory = null;
+  idGroup = null;
+  groupDans=""
+
 
 
   importForm = this.formBuilder.group({
@@ -22,9 +28,22 @@ export class AsideComponent implements OnInit {
     password : [""],
 
   });
-  constructor(private router: Router,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
+  constructor(private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+
+    this.idCategory = null;
+    this.idGroup = null;
+
+    if(this.route.snapshot.data['data'] == "category")
+    {
+      this.idCategory = this.route.snapshot.data['id'];
+
+
+      this.servicesService.GetAppGroupsByCategory(this.idCategory).subscribe((posts)=>{
+        this.listGroup = posts as Array<Post>
+      })
+    }
 
     if(localStorage.getItem('userId') != undefined){
       this.idUser =  localStorage.getItem('userId');
@@ -33,6 +52,23 @@ export class AsideComponent implements OnInit {
     this.servicesService.GetAllCategory().subscribe((categorys) => {
       this.listCategory = categorys
     })
+
+
+    if(this.router.url === '/byCategory/1'){
+      this.groupDans ="forum"
+    }
+    else if(this.router.url === '/byCategory/2'){
+      this.groupDans ="Agora"
+
+    }
+    else if(this.router.url === '/byCategory/3'){
+      this.groupDans ="Salle Modérateur"
+
+    }
+    else if(this.router.url === '/byCategory/4'){
+      this.groupDans ="CATALOGUE"
+
+    }
   }
 
   UserLogin(){

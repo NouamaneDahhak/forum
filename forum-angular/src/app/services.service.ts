@@ -68,6 +68,11 @@ export class ServicesService {
   CreatePost(Post){
     return this.http.post<Post>('/api/posts',Post)
   }
+
+  UploadFile(file){
+
+    return this.http.post('/api/posts/uploadPostImage',file)
+  }
   UpdatePost(id,Post){
     return this.http.post<Post>('/api/posts/update/'+id,Post)
 

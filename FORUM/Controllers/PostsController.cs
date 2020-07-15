@@ -4,6 +4,14 @@ using FORUM.Data;
 using FORUM.Dtos;
 using FORUM.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+
+using System.Net.Http;
 
 namespace FORUM.Controllers
 {
@@ -11,15 +19,21 @@ namespace FORUM.Controllers
     [ApiController]
     public class PostsController : ControllerBase{
 
-         
+        private readonly IHostingEnvironment _environment;
+
          private readonly IPostRepo _repository;
         private readonly IMapper _mapper;
 
-        public PostsController(IPostRepo repository , IMapper mapper)
+        public PostsController(IPostRepo repository , IMapper mapper,IHostingEnvironment environment)
         {
             _repository = repository;
             _mapper = mapper;
-            
+             _environment = environment ?? throw new ArgumentNullException(nameof(environment));
+
+        }
+         public class FIleUploadAPI
+        {
+            public IFormFile files { get; set; }
         }
         //private readonly MockPostRepo _MockPostRepo = new MockPostRepo();
 
@@ -59,6 +73,7 @@ namespace FORUM.Controllers
                   return NotFound();
             
         }
+
         [HttpPost]
         public ActionResult <PostReadDto> CreatePost(PostCreateDto _PostCreateDto){
 
@@ -70,6 +85,20 @@ namespace FORUM.Controllers
                   return Ok(postItem);
             
         }
+
+        [HttpPost("uploadPostImage/")] 
+       public async Task<string> UploadFile([FromForm] IFormFile file)
+    {
+        string fName = file.FileName;
+        string path = Path.Combine(_environment.ContentRootPath, "Images/" + file.FileName+".jpg");
+        using (var stream = new FileStream(path, FileMode.Create))
+        {
+            await file.CopyToAsync(stream);
+        }
+        return file.FileName; 
+    }
+
+
          [HttpPost("update/{id}")]
         public ActionResult <PostReadDto>  UpdatePost(int id,PostUpdateDto _PostUpdateDto){
                
@@ -85,8 +114,16 @@ namespace FORUM.Controllers
                   return Ok(_mapper.Map<PostReadDto>(postItem));
             
         }
-
+        [HttpGet("getImage/{img}")]
+       public IActionResult Get(string img)
+        {            
+            Byte[] b = System.IO.File.ReadAllBytes("Images/"+img+".jpg");   // You can use your own method over here.         
+            return File(b, "image/jpeg");
+        }
         
     }
+
+
+  
 
 }

@@ -21,12 +21,31 @@ export class SideHomeComponent implements OnInit {
 
   });
   show = false;
+  groupDans=""
 
 
   constructor(private router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
-     if(this.route.snapshot.data['data'] == 'category' && this.route.snapshot.data['id'] != 4){
+
+
+    if(this.router.url === '/byCategory/1'){
+      this.groupDans ="dans le forum"
+    }
+    else if(this.router.url === '/byCategory/2'){
+      this.groupDans ="dans Agora"
+
+    }
+    else if(this.router.url === '/byCategory/3'){
+      this.groupDans ="dans la Salle Modérateur"
+
+    }
+    else if(this.router.url === '/byCategory/4'){
+      this.groupDans ="dans le CATALOGUE"
+
+    }
+
+    if(this.route.snapshot.data['data'] == 'category' && this.route.snapshot.data['id'] != 4){
          this.show = true;
 
      }

@@ -5,6 +5,7 @@ import { Post } from './../../../DTO/Post';
 import { FormBuilder } from '@angular/forms';
 import { ServicesService } from './../../../services.service';
 import { Component, OnInit } from '@angular/core';
+import { event } from 'jquery';
 
 @Component({
   selector: 'app-add-post',
@@ -14,20 +15,25 @@ import { Component, OnInit } from '@angular/core';
 export class AddPostComponent implements OnInit {
 
 
+  fileToupload :  File = null;
    listCategory: Array<Category>
+   titleGroup = "";
   message="";
+  idUser = null;
+  imageUrl ="assets/image/default-img.jpg"
   importForm = this.formBuilder.group({
     title:  ["title"],
     content : ["content"],
     categoryId : [1],
-    img : ["blog-2-806x440.png"],
+    img : [""],
     date : ["blog-2-806x440.png"],
-    userId : [1],
+    userId : [""],
 
   });
   constructor(private route: ActivatedRoute,private router:Router,private datePipe: DatePipe,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+    this.titleGroup =  this.route.snapshot.paramMap.get('titleGroup');
     this.servicesService.GetAllCategory().subscribe((category) => {
       if (category != null){
         this.listCategory = category;
@@ -38,6 +44,16 @@ export class AddPostComponent implements OnInit {
     })
 
 
+    if(localStorage.getItem('userId') != undefined){
+      this.idUser = localStorage.getItem('userId');
+
+    }
+    else{
+      this.router.navigate(["/"]);
+
+    }
+
+
   }
 
   CreatePost(){
@@ -45,9 +61,8 @@ export class AddPostComponent implements OnInit {
     var post = new Post();
     post.title    =  this.importForm?.value?.title
     post.content =  this.importForm?.value?.content
-    post.img =  this.importForm?.value?.img
     post.date =  formatDate(new Date(), 'dd/MM/yyyy h:mm', 'en');
-    post.userId =  this.importForm?.value?.userId
+    post.userId =  this.idUser
     post.categoryId = +this.route.snapshot.paramMap.get('idCategory');
     post.nbComment =  "0"
     post.views =  "0"
@@ -55,6 +70,20 @@ export class AddPostComponent implements OnInit {
     post.nbdislike = 0
     post.epingler = false
     post.postId = +this.route.snapshot.paramMap.get('idGroup');
+    post.img =  "default-img.jpg";
+
+
+    var imgPost =  "imgPost"+ this.importForm?.value?.userId + "-" + formatDate(new Date(), 'dd_MM_yyyy_h_mm_ss', 'en');
+    if (this.fileList.length > 0) {
+      post.img =  imgPost;
+
+      const file = this.fileList[0];
+      const formData = new FormData();
+      formData.append('file', file,imgPost );
+      this.servicesService.UploadFile(formData).subscribe(()=>{
+      })
+    }
+
 
     this.servicesService.CreatePost(post).subscribe((post)=>{
       if(post["id"] != null){
@@ -65,11 +94,33 @@ export class AddPostComponent implements OnInit {
         this.message = "login ou mot de passe incorrecte "
       }
 
+
+
+
     })
 
+
+  }
+  fileList : FileList =null;
+  onFileChanged(event) {
+
+    this.fileList = event.target.files;
   }
 
-  onFileChanged(event) {
-    const file = event.target.files[0]
+  handleFileInput(files :FileList){
+
+    this.fileToupload = files.item(0);
+    var reader = new FileReader();
+    reader.onload=(event:any)=>{
+      this.imageUrl = event.target.result;
+
+    }
+    var file = reader;
+    reader.readAsDataURL(this.fileToupload);
+
   }
+
+
+
+
 }
