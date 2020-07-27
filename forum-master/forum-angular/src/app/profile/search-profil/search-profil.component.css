@@ -1,0 +1,10 @@
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.text-color{
+  color: black !important;
+  border-bottom: 1px dashed black !important ;
+
+}

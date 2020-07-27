@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2020 at 05:51 PM
+-- Generation Time: Jul 27, 2020 at 10:56 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -64,7 +64,8 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`Id`, `content`, `img`, `date`, `postId`, `userId`) VALUES
 (1, 'comment 1 p 1 u 1', 'images.png', '02/03/2012', 1, 2),
-(2, 'comment 2 p 1 u 2', 'images.png', '02/03/2012', 1, 3);
+(2, 'comment 2 p 1 u 2', 'images.png', '02/03/2012', 1, 3),
+(3, 'com1', NULL, '25/07/2020  11:31', 39, 4);
 
 -- --------------------------------------------------------
 
@@ -99,41 +100,55 @@ CREATE TABLE `posts` (
   `nblike` int(11) NOT NULL DEFAULT 0,
   `epingler` tinyint(1) NOT NULL DEFAULT 0,
   `postId` int(11) NOT NULL,
-  `postId1` int(11) DEFAULT NULL
+  `postId1` int(11) DEFAULT NULL,
+  `filePost` longtext DEFAULT NULL,
+  `imgCatalogPost` longtext DEFAULT NULL,
+  `txtPost` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`, `postId`, `postId1`) VALUES
-(1, 'group1', 'content', 'default-img.png', '02/03/1990', '7', '5', 4, 2, 0, 0, 0, 0, NULL),
-(2, 'group 2', 'content 2', 'default-img.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL),
-(4, 'group3', 'content3', 'default-img.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL),
-(5, 'group 5', 'content 4', 'default-img.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0, 0, NULL),
-(6, 'group4 ', 'content', 'default-img.png', '09/07/2020 4:09', '0', '0', 4, 1, 0, 0, 0, 1, NULL),
-(7, 'group 6', 'contentaa', 'default-img.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0, 0, NULL),
-(8, 'post 1-1', 'contentaa', 'default-img.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0, 5, NULL),
-(9, 'post 1 -2', 'content', 'default-img.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0, 5, NULL),
-(10, 'post 2 1 -1', 'content', 'default-img.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0, 7, NULL),
-(11, 'post2 -2 ', 'content', 'default-img.png', '14/07/2020 11:21', '0', '0', 1, 2, 0, 0, 1, 7, NULL),
-(12, 'group 1 cat 2', 'group 1 cat 2', 'default-img.png', '14/07/2020 2:06', '0', '0', 1, 2, 0, 0, 0, 7, NULL),
-(13, 'group1 cat 2 2 eme post', 'group1 cat 2 2 eme post', 'default-img.png', '14/07/2020 2:07', '0', '0', 1, 2, 0, 0, 1, 1, NULL),
-(17, 'title', NULL, 'default-img.png', '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
-(18, 'title', NULL, 'default-img.png', '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
-(19, 'group cat 1', NULL, 'default-img.png', '14/07/2020 2:27', '0', '0', 4, 1, 0, 0, 0, 0, NULL),
-(20, 'titlepost new grou cat 1', 'post new grou cat 1', 'default-img.png', '14/07/2020 2:27', '1', '0', 1, 1, 1, 1, 1, 19, NULL),
-(21, 'salle mopderateur g 1', NULL, 'default-img.png', '14/07/2020 2:40', '0', '0', 4, 3, 0, 0, 0, 0, NULL),
-(22, 'group 5', 'content 6', 'default-img.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL),
-(23, 'group7', 'content3', 'default-img.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL),
-(24, 'title group 5', 'content title group 5', 'default-img.png', '15/07/2020 8:35', '1', '0', 1, 1, 0, 0, 0, 22, NULL),
-(26, 'titleaa', 'contentaaa', 'default-img.png', '15/07/2020 12:23', '4', '0', 1, 1, 0, 0, 0, 23, NULL),
-(27, 'new  1', 'new 1', 'default-img.png', '15/07/2020 12:34', '3', '0', 1, 1, 0, 0, 0, 23, NULL),
-(28, 'title', 'content', 'default-img.png', '15/07/2020 12:36', '2', '0', 1, 1, 0, 0, 0, 23, NULL),
-(29, 'title', 'content', 'default-img.png', '15/07/2020 12:37', '2', '0', 1, 1, 0, 0, 0, 23, NULL),
-(30, 'title', 'content', 'default-img.png', '15/07/2020 12:40', '2', '0', 1, 1, 0, 0, 0, 23, NULL),
-(31, 'title', 'content', 'default-img.png', '15/07/2020 12:40', '5', '0', 1, 1, 0, 0, 0, 23, NULL),
-(32, 'title', 'content', 'default-img.png', '15/07/2020 1:08', '3', '0', 1, 1, 0, 0, 0, 23, NULL);
+INSERT INTO `posts` (`Id`, `title`, `content`, `img`, `date`, `views`, `nbComment`, `userId`, `categoryId`, `nbdislike`, `nblike`, `epingler`, `postId`, `postId1`, `filePost`, `imgCatalogPost`, `txtPost`) VALUES
+(1, 'group1', 'content', 'default-img.png', '02/03/1990', '7', '5', 4, 4, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(2, 'group 2', 'content 2', 'default-img.png', '02/03/1990', '14', '10', 1, 4, 0, 0, 0, 1, NULL, NULL, NULL, NULL),
+(4, 'group3', 'content3', 'default-img.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(5, 'group 5', 'content 4', 'default-img.png', '02/03/1990', '10', '10', 2, 2, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(6, 'group4 ', 'content', 'default-img.png', '09/07/2020 4:09', '0', '0', 4, 1, 0, 0, 0, 1, NULL, NULL, NULL, NULL),
+(7, 'group 6', 'contentaa', 'default-img.png', '09/07/2020 4:09', '5', '0', 1, 2, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(8, 'post 1-1', 'contentaa', 'default-img.png', '09/07/2020 4:09', '0', '0', 1, 2, 0, 0, 0, 5, NULL, NULL, NULL, NULL),
+(9, 'post 1 -2', 'content', 'default-img.png', '09/07/2020 4:11', '1', '0', 1, 2, 0, 0, 0, 5, NULL, NULL, NULL, NULL),
+(10, 'post 2 1 -1', 'content', 'default-img.png', '09/07/2020 4:30', '2', '0', 1, 2, 0, 0, 0, 7, NULL, NULL, NULL, NULL),
+(11, 'post2 -2 ', 'content', 'default-img.png', '14/07/2020 11:21', '0', '0', 1, 2, 0, 0, 1, 7, NULL, NULL, NULL, NULL),
+(12, 'group 1 cat 2', 'group 1 cat 2', 'default-img.png', '14/07/2020 2:06', '0', '0', 1, 2, 0, 0, 1, 7, NULL, NULL, NULL, NULL),
+(13, 'group1 cat 2 2 eme post', 'group1 cat 2 2 eme post', 'default-img.png', '14/07/2020 2:07', '0', '0', 1, 2, 0, 0, 1, 1, NULL, NULL, NULL, NULL),
+(17, 'title', NULL, 'default-img.png', '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(18, 'title', NULL, 'default-img.png', '14/07/2020 2:25', '0', '0', 4, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(19, 'group cat 1', NULL, 'default-img.png', '14/07/2020 2:27', '0', '0', 4, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(20, 'titlepost new grou cat 1aaa', 'post new grou cat 1aa', 'imgPost-27_07_2020_4_03_49.jpg', '14/07/2020 2:27', '1', '0', 1, 1, 1, 1, 1, 19, NULL, NULL, NULL, NULL),
+(21, 'salle mopderateur g 1', NULL, 'default-img.png', '14/07/2020 2:40', '0', '0', 4, 3, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(22, 'group 5', 'content 6', 'default-img.png', '02/03/1990', '10', '10', 1, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(23, 'group7', 'content3', 'default-img.png', '02/03/1990', '7', '5', 4, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(24, 'title group 5', 'content title group 5', 'default-img.png', '15/07/2020 8:35', '1', '0', 1, 1, 0, 0, 0, 22, NULL, NULL, NULL, NULL),
+(26, 'titleaa', 'contentaaa', 'default-img.png', '15/07/2020 12:23', '4', '0', 1, 1, 0, 0, 0, 23, NULL, NULL, NULL, NULL),
+(27, 'new  1', 'new 1', 'default-img.png', '15/07/2020 12:34', '3', '0', 1, 1, 0, 0, 0, 23, NULL, NULL, NULL, NULL),
+(28, 'title', 'content', 'default-img.png', '15/07/2020 12:36', '2', '0', 1, 1, 0, 0, 0, 23, NULL, NULL, NULL, NULL),
+(29, 'title', 'content', 'default-img.png', '15/07/2020 12:37', '2', '0', 1, 1, 0, 0, 0, 23, NULL, NULL, NULL, NULL),
+(30, 'title', 'content', 'default-img.png', '15/07/2020 12:40', '2', '0', 1, 1, 0, 0, 0, 23, NULL, NULL, NULL, NULL),
+(31, 'title', 'content', 'default-img.png', '15/07/2020 12:40', '5', '0', 1, 1, 0, 0, 0, 23, NULL, NULL, NULL, NULL),
+(32, 'titleaaa', 'contentaaa', 'imgPost-27_07_2020_3_49_05.jpg', '15/07/2020 1:08', '33', '0', 1, 1, 0, 1, 0, 23, NULL, NULL, NULL, NULL),
+(33, 'group test ........', NULL, NULL, '17/07/2020 12:24', '0', '0', 4, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(34, 'title', 'content', 'default-img.png', '25/07/2020 9:57', '4', '0', 4, 4, 0, 0, 0, 1, NULL, NULL, NULL, NULL),
+(35, 'title', 'content', 'default-img.png', '25/07/2020 10:03', '2', '0', 4, 4, 0, 0, 0, 1, NULL, NULL, NULL, NULL),
+(36, 'title', 'content', 'default-img.png', '25/07/2020 10:05', '30', '0', 4, 4, 0, 0, 0, 1, NULL, NULL, NULL, NULL),
+(37, 'title', 'content', 'imgPost-25_07_2020_10_24_31.jpg', '25/07/2020 10:24', '1', '0', 4, 4, 0, 0, 0, 1, NULL, 'file-25_07_2020_10_24_31', 'imgCatalogPost-25_07_2020_10_24_31', 'txtPost-25_07_2020_10_24_31'),
+(38, 'title', 'content', 'imgPost-25_07_2020_10_32_26.jpg', '25/07/2020 10:32', '21', '0', 4, 4, 0, 0, 0, 1, NULL, 'file-25_07_2020_10_32_26', 'imgCatalogPost-25_07_2020_10_32_26', 'txtPost-25_07_2020_10_32_26'),
+(39, 'title', 'content', 'default-img.png', '25/07/2020 11:13', '16', '1', 4, 4, 0, 0, 0, 1, NULL, 'file-25_07_2020_11_13_59-angular error.txt', 'imgCatalogPost-25_07_2020_11_13_59-container-operation-port-series_1150-8369.jpg', 'txtPost-25_07_2020_11_13_59-angular error.txt'),
+(40, 'test agora group', NULL, NULL, '27/07/2020 10:24', '1', '0', 4, 2, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(41, 'title', 'content', 'default-img.png', '27/07/2020 11:20', '1', '0', 4, 4, 0, 0, 0, 1, NULL, 'file-27_07_2020_11_20_30-angular error.txt', NULL, NULL),
+(42, 'titleaaasa', 'contentaasas', 'default-img.png', '27/07/2020 11:24', '10', '0', 4, 4, 0, 0, 0, 1, NULL, 'file-27_07_2020_4_26_24-angular error.txt', 'imgCatalogPost-27_07_2020_11_24_07-container-operation-port-series_1150-8369.jpg', 'txtPost-27_07_2020_4_28_06-angular error.txt'),
+(43, 'aaa', 'aaa', 'imgPost-27_07_2020_4_08_38.jpg', '27/07/2020 4:08', '1', '0', 4, 1, 0, 0, 1, 33, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -164,7 +179,8 @@ INSERT INTO `reaction` (`Id`, `like`, `date`, `postId`, `userId`) VALUES
 (9, 1, '02/03/2012', 1, 2),
 (10, 0, '02/03/2012', 1, 2),
 (11, 1, '02/03/2012', 20, 4),
-(12, 0, '02/03/2012', 20, 4);
+(12, 0, '02/03/2012', 20, 4),
+(13, 1, '02/03/2012', 32, 4);
 
 -- --------------------------------------------------------
 
@@ -240,7 +256,8 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20200714124609_mig0011', '3.1.5'),
 ('20200714124716_mig0012', '3.1.5'),
 ('20200714125348_mig0015', '3.1.5'),
-('20200714125507_mig0016', '3.1.5');
+('20200714125507_mig0016', '3.1.5'),
+('20200725101734_mig25-1', '3.1.5');
 
 --
 -- Indexes for dumped tables
@@ -310,7 +327,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `group`
@@ -322,13 +339,13 @@ ALTER TABLE `group`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `reaction`
 --
 ALTER TABLE `reaction`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`

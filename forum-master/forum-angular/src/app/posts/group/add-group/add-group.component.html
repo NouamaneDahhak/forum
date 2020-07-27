@@ -1,0 +1,59 @@
+<header></header>
+
+<!-- ======content section/body=====-->
+<section class="main-content920">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="ask-question-input-part032">
+          <h4>Ajouter un sujet</h4>
+          <hr>
+          <form [formGroup]="importForm">
+            <div class="username-part940">
+              <span class="form-description43">User name* </span><input formControlName="title" type="text" name="fname" class="username029"
+                placeholder="Enter your Name">
+            </div>
+
+            <div  class="categori49">
+              <span class="form-description43305">Category* </span>
+              <label style="width: 100%;">
+                <select style="width: 100%;" class="list-category53" formControlName="categoryId" id="browsers">
+                   <option list="browsers" name="myBrowser" *ngFor="let item of this.listCategory" [ngValue]="item.id" >{{item.value}}</option>
+                </select>
+              </label>
+
+            </div>
+            <div class="button-group-addfile3239">
+              <span class="form-description23993">Attactment*</span><input #fileInput (change)="onFileChanged($event)" type="file" name="ffile"
+                class="question-ttile3226">
+
+            </div>
+            <div class="details2-239">
+              <div class="username-part940 col-md-12 nopadding">
+                <textarea style="width: 100%;height: 150px;" class="username-part940" formControlName="content" id="txtEditor"></textarea>
+              </div>
+            </div>
+
+          </form>
+          <div class="publish-button2389">
+            <button (click)="CreatePost()" type="button" class="publis1291">Publier</button>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+      <aside class="col-md-3 sidebar97239">
+        <app-aside></app-aside>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer></footer>
+
+

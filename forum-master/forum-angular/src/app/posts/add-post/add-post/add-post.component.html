@@ -1,0 +1,84 @@
+<header></header>
+
+<!-- ======content section/body=====-->
+<section class="main-content920">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="ask-question-input-part032">
+          <h4 *ngIf="titleGroup != null" > Ajouter un sujet dans {{titleGroup}}</h4>
+          <hr>
+          <form #imageForm="ngForm" [formGroup]="importForm">
+            <div class="username-part940">
+              <span class="form-description43">User name* </span><input formControlName="title" type="text" name="fname" class="username029"
+                placeholder="Enter your Name">
+            </div>
+
+            <!-- <div  class="categori49">
+              <span class="form-description43305">Category* </span>
+              <label style="width: 100%;">
+                <select style="width: 100%;" class="list-category53" formControlName="categoryId" id="browsers">
+                   <option list="browsers" name="myBrowser" *ngFor="let item of this.listCategory" [ngValue]="item.id" >{{item.value}}</option>
+                </select>
+              </label>
+
+            </div> -->
+
+            <img *ngIf="imageUrl!='default-img.png'"  [src]="imageUrl" style="width: 100%;height: 100%;">
+            <div class="button-group-addfile3239">
+              <span class="form-description23993">Post Image*</span><input (change)="handleFileInput($event.target.files);onFileChanged('postimg',$event)" #Image accept="image/*"  formControlName="img"  type="file" name="file"
+                class="question-ttile3226">
+
+            </div>
+            <div *ngIf="idCategory == '4'" >
+                  <div class="button-group-addfile3239">
+                    <span class="form-description23993">File catalogue</span><input (change)="handleFileInput($event.target.files);onFileChanged('file',$event)" #Image   formControlName="img"  type="file" name="file"
+                      class="question-ttile3226">
+
+                  </div>
+                  <div class="button-group-addfile3239">
+                    <span class="form-description23993">Text catalogue</span><input (change)="handleFileInput($event.target.files);onFileChanged('txt', $event)" #Image   formControlName="img"  type="file" name="file"
+                      class="question-ttile3226">
+
+                  </div>
+                  <div class="button-group-addfile3239">
+                    <span class="form-description23993">Image catalogue*</span><input (change)="handleFileInput($event.target.files);onFileChanged('img', $event)" #Image   formControlName="img"  type="file" name="file"
+                      class="question-ttile3226">
+
+                  </div>
+
+          </div>
+            <div class="details2-239">
+              <div class="username-part940 col-md-12 nopadding">
+                <textarea style="width: 100%;height: 150px;" class="username-part940"  formControlName="content" id="txtEditor"></textarea>
+              </div>
+            </div>
+
+          </form>
+          <div *ngIf="edit == false"  class="publish-button2389">
+            <button (click)="CreatePost()" type="button" class="publis1291">Publier</button>
+          </div>
+
+          <div *ngIf="edit == true" class="publish-button2389">
+            <button (click)="UpdatePost()" type="button" class="publis1291">Update</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <aside class="col-md-3 sidebar97239">
+        <app-aside></app-aside>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<footer></footer>
+
+
+
