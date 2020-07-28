@@ -28,6 +28,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -62,7 +63,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatToolbarModule,
     MatPaginatorModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
 
   ],
   exports: [
@@ -91,7 +93,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatToolbarModule,
     MatPaginatorModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ]
 
 })

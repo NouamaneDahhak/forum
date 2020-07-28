@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QAlwXw+Md0kZIQFtwj8hD2Lmp+pALLtrG2gSTm2hgUlbrbGZ/OibELQTYy6mI+Ui5DJvvxNuj+70AE7jd62iAg==",
+  "dgSpecHash": "JjO6HNxSxukaJvMRMbxzqsVcJjwCaLJXQLrkCNKHbi8h5ZTVQH2tmbqoBPUWmpnSuoBTVtulzbOsPISi6TvoHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ndahhak\\Desktop\\GITLAB\\KeaWeb\\forum-master\\FORUM\\FORUM.csproj",
+  "projectFilePath": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ndahhak\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\ndahhak\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

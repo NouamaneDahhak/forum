@@ -2,14 +2,7 @@
 
 
 <section class="header-descriptin329">
-  <div class="container">
-      <h3>Post Details</h3>
-      <ol class="breadcrumb breadcrumb839">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Post Details</a></li>
-          <li class="active">This Is My first Question</li>
-      </ol>
-  </div>
+
 </section>
 <!-- ======content section/body=====-->
 <section class="main-content920">
@@ -30,7 +23,7 @@
 
                   <div class="col-md-3">
 
-                      <div class="post-que-rep-rihght320"> <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> {{post?.category.value}}</a>  </div>
+                      <div class="post-que-rep-rihght320"> <a ><i class="fa fa-question-circle" aria-hidden="true"></i> {{post?.category.value}}</a>  </div>
                   </div>
 
 
@@ -49,24 +42,24 @@
           <tr>
             <th scope="col">#</th>
 
-            <th scope="col">Handle</th>
+            <th scope="col">telecharger</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">File</th>
+            <th scope="row">Polaris</th>
 
-            <td ><a *ngIf="post?.filePost != null"  [href]="'api/posts/getImage/' +post?.filePost +'/'+ 'download'">File</a></td>
+            <td ><a *ngIf="post?.filePost != null"  [href]="'api/posts/getImage/' +post?.filePost +'/'+ 'download'">fichier Polaris </a></td>
           </tr>
           <tr>
             <th scope="row">Image catalogue</th>
 
             <td> <a *ngIf="post?.imgCatalogPost != null" [href]="'api/posts/getImage/' +post?.imgCatalogPost +'/'+ 'download'">Image catalogue</a></td>
           </tr>
-          <tr>
+          <!-- <tr>
             <th scope="row">Text Catalogue</th>
             <td> <a *ngIf="post?.txtPost != null" [href]="'api/posts/getImage/' +post?.txtPost +'/'+ 'download'">Text Catalogue</a></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
 
@@ -75,7 +68,7 @@
               {{post?.content}}
                <hr>
               <div class="post-footer29032">
-                  <div class="l-side2023">  <a href="#"><i class="fa fa-thumb-tack star2" aria-hidden="true">  5</i></a> <i class="fa fa-folder folder2" aria-hidden="true"> {{post?.category.value}}</i> <i class="fa fa-clock-o clock2" aria-hidden="true"> {{post?.date}}</i> <a href="#"><i class="fa fa-commenting commenting2" aria-hidden="true"> {{post?.nbComment}}</i></a> <i class="fa fa-user user2" aria-hidden="true"> {{post?.views}}</i> </div>
+                  <div class="l-side2023">  <i class="fa fa-folder folder2" aria-hidden="true"> {{post?.category.value}}</i> <i class="fa fa-clock-o clock2" aria-hidden="true"> {{post?.date}}</i> <a ><i class="fa fa-commenting commenting2" aria-hidden="true"> {{post?.nbComment}}</i></a> <i class="fa fa-user user2" aria-hidden="true"> {{post?.views}}</i> </div>
                   <div class="l-rightside39">
                       <button (click)="likeDislike(true)" type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip" data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up " aria-hidden="true"></i><span class="single-question-vote-result">{{post?.nblike}}</span> </button>
                       <button (click)="likeDislike(false)" type="button" class="tolltip-button  thumbs-down2" data-toggle="tooltip" data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button> <span class="single-question-vote-result">{{post?.nbdislike}}</span> </div>
@@ -87,7 +80,7 @@
 
       <div class="author-details8392">
           <div class="author-img202l"> <img [src]="returnImage(post?.user.img)"  alt="image">
-              <div class="au-image-overlay text-center"> <a href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a> </div>
+              <div class="au-image-overlay text-center"> <a ><i class="fa fa-plus-square-o" aria-hidden="true"></i></a> </div>
           </div> <span class="author-deatila04re">
      <h5>About the Author</h5>
       <p>{{post?.user.username}}</p>
@@ -96,10 +89,10 @@
       <!-- <div class="related3948-question-part">
           <h3>Related questions</h3>
           <hr>
-          <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This Is My Second Poll Question</a></p>
-          <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my third Question</a></p>
-          <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fourth Question</a></p>
-          <p><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fifth Question</a></p>
+          <p><a ><i class="fa fa-angle-double-right" aria-hidden="true"></i>This Is My Second Poll Question</a></p>
+          <p><a ><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my third Question</a></p>
+          <p><a ><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fourth Question</a></p>
+          <p><a ><i class="fa fa-angle-double-right" aria-hidden="true"></i>This is my fifth Question</a></p>
       </div> -->
       <div class="comment-list12993">
           <div class="container">
@@ -116,7 +109,7 @@
                                 <!-- Contenedor del Comentario -->
                                 <div class="comment-box">
                                     <div class="comment-head">
-                                        <h6 class="comment-name"><a href="#">{{item?.user.username}}</a></h6> <span><i class="fa fa-clock-o" aria-hidden="true"> {{item?.date}}</i></span>  </div>
+                                        <h6 class="comment-name"><a >{{item?.user.username}}</a></h6> <span><i class="fa fa-clock-o" aria-hidden="true"> {{item?.date}}</i></span>  </div>
                                     <div class="comment-content">{{item?.content}} </div>
                                 </div>
                             </div>

@@ -26,3 +26,49 @@ table {
 label{
   font-size: 12px !important;
 }
+
+
+
+.h1custom{
+  color: black;
+  font-size: 14px;
+}
+.fa-thumbs-o-up{
+  color:blue;
+  margin-right: 2px;
+
+}
+.fa-thumbs-o-down{
+  color: red;
+  margin-right: 2px;
+
+}
+
+.fa-user-circle-o{
+  color: #076da8;
+  margin-right: 2px;
+}
+.fa-comment{
+  color: #5a37ac;
+  margin-right: 2px;
+}
+.fa-clock-o{
+  color: #109ad1;
+  margin-right: 2px;
+}
+.fa-folder{
+  color: #0c611a;
+  margin-right: 2px;
+}
+.fa-thumb-tack{
+  color: #610c0c;
+  margin-right: 2px;
+}
+
+
+.fa{
+  cursor: pointer;
+}
+mat-icon{
+  cursor: pointer;
+}

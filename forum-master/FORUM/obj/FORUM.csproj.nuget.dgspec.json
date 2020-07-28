@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ndahhak\\Desktop\\GITLAB\\KeaWeb\\forum-master\\FORUM\\FORUM.csproj": {}
+    "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ndahhak\\Desktop\\GITLAB\\KeaWeb\\forum-master\\FORUM\\FORUM.csproj": {
+    "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ndahhak\\Desktop\\GITLAB\\KeaWeb\\forum-master\\FORUM\\FORUM.csproj",
+        "projectUniqueName": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj",
         "projectName": "FORUM",
-        "projectPath": "C:\\Users\\ndahhak\\Desktop\\GITLAB\\KeaWeb\\forum-master\\FORUM\\FORUM.csproj",
+        "projectPath": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj",
         "packagesPath": "C:\\Users\\ndahhak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ndahhak\\Desktop\\GITLAB\\KeaWeb\\forum-master\\FORUM\\obj\\",
+        "outputPath": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ndahhak\\AppData\\Roaming\\NuGet\\NuGet.Config"

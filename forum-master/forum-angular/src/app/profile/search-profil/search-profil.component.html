@@ -1,10 +1,10 @@
 <header></header>
-<section class="main-content920 d-flex justify-content-center row">
+<section class="main-content920 d-flex justify-content-center row blog-part3903 mr-5 ml-5" style="background-color: white;">
 
 
   <div class="mt-5 mb-5 col-8 ">
-    <mat-label>Filter</mat-label>
-    <input class="text-color" matInput (keyup)="applyFilter($event)" placeholder="Ex. nom,nom entreprise ..." #input>
+    <mat-label class="col-md-2">Filter</mat-label>
+    <input class="text-color mr-5 col-md-9" matInput (keyup)="applyFilter($event)" placeholder="Ex. nom,nom entreprise ..." #input>
   </div>
 
   <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8 col-10">
@@ -78,15 +78,15 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
+  <div class="mt-5">
+    <mat-paginator #paginator [pageSize]="5" showFirstLastButton
+   >
+  </mat-paginator>
+  </div>
 
 
 
 </section>
-<div>
-  <mat-paginator #paginator [pageSize]="5" showFirstLastButton
-  [pageSizeOptions]="[5, 10, 25, 100]">
-</mat-paginator>
-</div>
 
 
 

@@ -1,9 +1,11 @@
+import { MatAccordion } from '@angular/material/expansion';
+import { formatDate } from '@angular/common';
 import { Post } from 'src/app/DTO/Post';
 import { Category } from './../../DTO/Category';
 import { User } from './../../DTO/User';
 import { FormBuilder } from '@angular/forms';
 import { ServicesService } from './../../services.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -13,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent implements OnInit {
+  @ViewChild(MatAccordion) accordion: MatAccordion;
 
   message="";
   idUser = null;
@@ -27,6 +30,11 @@ export class AsideComponent implements OnInit {
   importForm = this.formBuilder.group({
     email:  [""],
     password : [""],
+
+  });
+
+  addgroup = this.formBuilder.group({
+    text:  [""],
 
   });
   constructor(public dialog: MatDialog, private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
@@ -96,6 +104,33 @@ export class AsideComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  addGroup(){
+    var post = new Post();
+    post.title    =  this.addgroup?.value?.text
+    post.date =  formatDate(new Date(), 'dd/MM/yyyy h:mm', 'en');
+    post.userId =  this.idUser
+    post.categoryId = +this.route.snapshot.data['id'];
+    post.nbComment =  "0"
+    post.views =  "0"
+    post.nblike = 0
+    post.nbdislike = 0
+    post.epingler = false
+    post.postId = 0;
+
+    this.servicesService.CreatePost(post).subscribe((post)=>{
+      if(post["id"] != null){
+
+        location.reload();
+      }
+      else{
+
+      }
+
+    })
+
+  }
+
 
 }
 
