@@ -34,9 +34,11 @@ export class AddPostComponent implements OnInit {
     userId : [""],
 
   });
+  Usertype = null
   constructor(private route: ActivatedRoute,private router:Router,private datePipe: DatePipe,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+    this.Usertype = localStorage.getItem('Usertype');
 
     if(this.route.snapshot.data['data'] == "edit"){
 

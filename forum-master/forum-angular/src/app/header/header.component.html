@@ -12,7 +12,7 @@
                         </ul>
                   </div>
               </div>
-            
+
           </div>
       </div>
   </div>
@@ -30,7 +30,7 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav"> </ul>
                   <ul class="nav navbar-nav navbar-right">
-                      <li [ngClass]="{'changeColor': this.router.url === '/byCategory/1'}" ><a  routerLink="/byCategory/1"   >FORUM</a></li>
+                      <li *ngIf="Usertype == 'Entreprise'" [ngClass]="{'changeColor': this.router.url === '/byCategory/1'}" ><a  routerLink="/byCategory/1"   >FORUM</a></li>
                       <li [ngClass]="{'changeColor': this.router.url === '/byCategory/2'}" ><a routerLink="/byCategory/2"  >AGORA</a></li>
                       <li [ngClass]="{'changeColor': this.router.url === '/byCategory/3'}" ><a routerLink="/byCategory/3"  >SALLE MODERATEUR</a></li>
                       <li [ngClass]="{'changeColor': this.router.url === '/byCategory/4'}" ><a routerLink="/byCategory/4"  >CATALOGUE</a></li>

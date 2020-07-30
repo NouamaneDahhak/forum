@@ -14,10 +14,12 @@ export class HeaderComponent implements OnInit {
   login:boolean = true;
   listCategory:Array<Category>;
   idUser = null;
-
+  Usertype = null
   constructor(public router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+    this.Usertype = localStorage.getItem('Usertype');
+
     if(localStorage.getItem('userId') == undefined){
       this.login = true;
     }

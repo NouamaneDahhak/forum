@@ -57,9 +57,11 @@ export class ContentComponent implements OnInit {
   reactions:Array<Reaction> ;
   countLiked:number = 0
   countDisLiked:number = 0
+  Usertype = null;
   constructor(public dialog: MatDialog, private router: Router,private route: ActivatedRoute,private _snackBar: MatSnackBar,private formBuilder: FormBuilder , private servicesService: ServicesService) {
     if(localStorage.getItem('userId') != undefined){
       this.idUser = localStorage.getItem('userId');
+      this.Usertype = localStorage.getItem('Usertype');
       console.log(this.idUser);
 
     }

@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       if(ListUsers != null){
 
         localStorage.setItem('userId', ListUsers["id"].toString());
+        localStorage.setItem('Usertype', ListUsers["Usertype"].toString());
         this.router.navigate(["/"]);
 
       }

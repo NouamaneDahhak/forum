@@ -18,12 +18,13 @@ export class SearchProfilComponent implements OnInit {
   dataSource : MatTableDataSource<User>;
 
   displayedColumns: string[] = ['username','nomEntreprise','Nom', 'password', 'Usertype','action'];
-
+  Usertype = null;
 
   constructor(private router: Router,private formBuilder: FormBuilder, private servicesService: ServicesService) { }
 
 
   ngOnInit(): void {
+    this.Usertype = localStorage.getItem('Usertype');
 
     this.servicesService.GetAllUsers().subscribe((payload=>{
       const Users = payload as Array<User>;

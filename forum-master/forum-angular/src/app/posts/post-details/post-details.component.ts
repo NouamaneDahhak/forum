@@ -29,12 +29,13 @@ export class PostDetailsComponent implements OnInit {
     content:  [null],
 
   });
-
+  Usertype = null;
   constructor(private router:Router,private route: ActivatedRoute,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
 
 
+    this.Usertype = localStorage.getItem('Usertype');
 
     this.idPost = this.route.snapshot.paramMap.get('id');
 

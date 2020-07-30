@@ -25,9 +25,12 @@ export class AddGroupComponent implements OnInit {
     userId : [1],
 
   });
+  Usertype = null;
   constructor(private router:Router,private datePipe: DatePipe,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+    this.Usertype = localStorage.getItem('Usertype');
+
     this.servicesService.GetAllCategory().subscribe((category) => {
       if (category != null){
         this.listCategory = category;

@@ -12,9 +12,12 @@ export class PostsComponent implements OnInit {
 
   listPosts:Array<Post>
 
+  Usertype = null;
   constructor(private formBuilder: FormBuilder , private servicesService: ServicesService) { }
 
   ngOnInit(): void {
+
+    this.Usertype = localStorage.getItem('Usertype');
 
     this.servicesService.GetAllPosts().subscribe((posts)=>{
       this.listPosts = posts as Array<Post>
