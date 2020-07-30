@@ -17,7 +17,7 @@
   <a [routerLink]="['/add-post', idGroup,this.route.snapshot.paramMap.get('idCategory')]"  class="form-control">Add Post</a>
 </div>
 
-<div [formGroup]="addgroup"  *ngIf="idCategory != 4 && idCategory != null && this.idUser != null">
+<div [formGroup]="addgroup"  *ngIf="idCategory != 4 && idCategory != null && this.idUser != null && Usertype != 'Utilisateur' && Usertype != 'Invité' ">
   <mat-list class="scroll">
 
 

@@ -25,4 +25,8 @@ export class User
          public  telephone2         :string;
          public  metier             :string;
 
+         constructor(){
+
+         }
+
   }

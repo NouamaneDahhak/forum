@@ -32,7 +32,7 @@ export class AsideComponent implements OnInit {
     password : [""],
 
   });
-
+  Usertype =null;
   addgroup = this.formBuilder.group({
     text:  [""],
 
@@ -40,6 +40,7 @@ export class AsideComponent implements OnInit {
   constructor(public dialog: MatDialog, private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private servicesService:ServicesService) { }
 
   ngOnInit(): void {
+    this.Usertype = localStorage.getItem('Usertype');
 
     this.idCategory = null;
     this.idGroup = null;
@@ -86,9 +87,12 @@ export class AsideComponent implements OnInit {
     user.password =  this.importForm?.value?.password
     this.servicesService.UserLogin(user).subscribe((ListUsers)=>{
       if(ListUsers != null){
+        console.log(ListUsers);
 
         localStorage.setItem('userId', ListUsers["id"].toString());
-        location.reload();
+        localStorage.setItem('Usertype', ListUsers["usertype"].toString());
+
+       location.reload();
       }
       else{
         this.message = "login ou mot de passe incorrecte "

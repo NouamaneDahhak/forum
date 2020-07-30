@@ -62,7 +62,7 @@ export class ContentComponent implements OnInit {
     if(localStorage.getItem('userId') != undefined){
       this.idUser = localStorage.getItem('userId');
       this.Usertype = localStorage.getItem('Usertype');
-      console.log(this.idUser);
+      console.log(this.Usertype);
 
     }
 

@@ -27,6 +27,7 @@ namespace FORUM.Dtos
          public string telephone2 { get; set; }
          public string metier { get; set; }
 
+        public string email { get; set; }
 
     }
 }

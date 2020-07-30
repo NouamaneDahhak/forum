@@ -37,14 +37,16 @@ export class LoginComponent implements OnInit {
     this.servicesService.UserLogin(user).subscribe((ListUsers)=>{
       if(ListUsers != null){
 
+        console.log(ListUsers);
         localStorage.setItem('userId', ListUsers["id"].toString());
-        localStorage.setItem('Usertype', ListUsers["Usertype"].toString());
-        this.router.navigate(["/"]);
+        localStorage.setItem('Usertype', ListUsers["usertype"].toString());
 
       }
       else{
         this.message = "identifiant ou mot de passe incorrecte "
       }
+      this.router.navigate(["/"]);
+
 
     })
   }

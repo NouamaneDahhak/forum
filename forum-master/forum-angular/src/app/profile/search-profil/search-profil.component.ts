@@ -45,8 +45,8 @@ export class SearchProfilComponent implements OnInit {
     var _user =new User() ;
     _user = user;
     _user.Usertype=type;
+
     this.servicesService.UpdateUser(user.id, _user).subscribe((payload=>{
-           location.reload();
     }))
 
   }
