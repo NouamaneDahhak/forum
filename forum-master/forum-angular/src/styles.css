@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 .changeColor {
-  background:#4b9cdf;
+  background:#339971;
   color:#ecf0f1 !important;
   }
   .changeColor:hover {
-    background-:#4b9cdf;
+    background-:#339971;
     color:#ecf0f1 !important;
     }
 

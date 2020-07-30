@@ -1,5 +1,7 @@
 html {
-  background: #90caf9;
+  background: #339971;
+/* background-image:url(images/logo.png);
+
 /*
   background: radial-gradient(#fff176, #f57f17);
   min-height: 100%;
@@ -11,7 +13,7 @@ html {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 30px;
-  color: #90caf9;
+  color: #339971;
   font-weight: 300;
   font-size: 24px;
   letter-spacing: 1px;
@@ -66,7 +68,7 @@ label:first-child {
 .rerun-button {
   padding: 10px 20px;
   border-radius: 3px;
-  background: #90caf9;
+  background: #339971;
   color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -76,7 +78,7 @@ label:first-child {
 }
 .button:hover,
 .rerun-button:hover {
-  background: #e66400;
+  background: #339971;
 }
 .button.rerun-button,
 .rerun-button.rerun-button {

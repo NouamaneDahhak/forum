@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JjO6HNxSxukaJvMRMbxzqsVcJjwCaLJXQLrkCNKHbi8h5ZTVQH2tmbqoBPUWmpnSuoBTVtulzbOsPISi6TvoHg==",
+  "dgSpecHash": "Hgw38BsxjZT9ahs+cmubxM02YzVVRLpgOr1ETthspIukDHfx9jGx0eX/vyH5E1XJaxHPbVvrlDWR6lgElQ29yQ==",
   "success": true,
-  "projectFilePath": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj",
+  "projectFilePath": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ndahhak\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\ndahhak\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

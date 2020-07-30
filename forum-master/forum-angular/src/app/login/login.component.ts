@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   message="";
   importForm = this.formBuilder.group({
-    email:  ["nouamanedahhak@gmail.com"],
-    password : ["DAHHAK"],
+    email:  ["   Veuillez entrer votre email"],
+    password : ["           veuillez entrer votre password"],
 
   });
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
       }
       else{
-        this.message = "login ou mot de passe incorrecte "
+        this.message = "identifiant ou mot de passe incorrecte "
       }
 
     })

@@ -1960,11 +1960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj",
+      "projectUniqueName": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj",
       "projectName": "FORUM",
-      "projectPath": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\FORUM.csproj",
+      "projectPath": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj",
       "packagesPath": "C:\\Users\\ndahhak\\.nuget\\packages\\",
-      "outputPath": "C:\\code_dev\\Git\\forum\\forum-master\\FORUM\\obj\\",
+      "outputPath": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ndahhak\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -15,7 +15,7 @@ hr {
 }
 
 .top-bar {
-    background-color: #90caf9;
+    background-color: #339971;
     padding: 1px;
 }
 
@@ -198,7 +198,7 @@ hr {
     padding: 8px 25px 8px 20px;
     margin-top: 7px;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: cursive;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -913,31 +913,25 @@ hr {
 }
 
 .login-part2389 h4 {
-    color: #90caf9;
+    color:#339971
+    ;
     font-weight: bold;
     font-family: serif;
     border-bottom: 2px solid #eaeaeb;
     padding-bottom: 10px;
 }
 
-.login-part2389 .fa-user {
-    margin-left: 10px;
-    position: absolute;
-    z-index: 9999;
-    margin-top: 6px;
-    font-size: 25px;
-    color: #90caf9;
-}
 
 .login-part2389 .namein309 {
     position: relative;
     z-index: 1;
     padding-left: 30px;
     height: 40px;
-    border: 1px solid #90caf9;
+    font-family: serif;
+    border: 1px solid #339971;
     outline: none;
     background: rgba(255, 115, 97, 0.20);
-    color: #000;
+    color: #339971;
     font-weight: bold;
 }
 
@@ -954,7 +948,10 @@ hr {
     z-index: 9999;
     margin-top: 6px;
     font-size: 25px;
-    color: #90caf9;
+    color: #339971
+
+
+    ;
 }
 
 .login-part2389 .passin309 {
@@ -962,7 +959,7 @@ hr {
     z-index: 1;
     padding-left: 30px;
     height: 40px;
-    border: 1px solid #90caf9;
+    border: 1px solid #339971;
     outline: none;
     background: rgba(255, 115, 97, 0.20);
     color: #000;
@@ -974,7 +971,8 @@ hr {
     height: 35px;
     width: 100%;
     text-align: center;
-    background-color: #90caf9;
+    background-color: #339971
+    ;
     border: none;
     font-weight: bold;
     color: #fff;
@@ -995,7 +993,7 @@ hr {
 }
 
 .rememberme {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .rememberme label {
@@ -1016,7 +1014,7 @@ hr {
 }
 
 .resbutton3892:hover {
-    color: #90caf9;
+    color: #339971;
     float: right;
     font-size: 12px;
 }
