@@ -14,8 +14,13 @@
         <input formControlName="email" type="email" placeholder="E-Mail*"/>
         <input formControlName="emailSecondaire" type="email" placeholder="E-Mail*"/>
         <input formControlName="adresse" type="text" placeholder="adresse*"/>
-        <input formControlName="pays" type="text" placeholder="pays*"/>
-        <input formControlName="Region" type="text" placeholder="Region*"/>
+
+        <select class="form-control" formControlName="pays" placeholder="pays*">
+          <option>France</option>
+          <option>Italie</option>
+
+        </select>
+ <input formControlName="Region" type="text" placeholder="Region*"/>
         <input formControlName="codePostal" type="text" placeholder="codePostal*"/>
         <input formControlName="ville" type="text" placeholder="ville*"/>
         <input formControlName="telephone1" type="text" placeholder="telephone1*"/>

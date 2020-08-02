@@ -77,7 +77,7 @@ export class SignUpComponent implements OnInit {
     var user =new User() ;
 
     var imgUser=  "imgUser"+ this.idUser + "-" + formatDate(new Date(), 'dd_MM_yyyy_h_mm_ss', 'en');
-    if (this.fileList.length > 0) {
+    if (this?.fileList?.length > 0) {
       user.img =  imgUser;
 
       const file = this.fileList[0];
@@ -85,6 +85,10 @@ export class SignUpComponent implements OnInit {
       formData.append('file', file,imgUser );
       this.servicesService.UploadFile(formData).subscribe(()=>{
       })
+    }
+    else{
+      user.img =  "avatar.png";
+
     }
 
     if(this.edit){

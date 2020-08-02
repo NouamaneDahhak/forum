@@ -68,20 +68,16 @@ namespace FORUM.Controllers
             
         }
 
+       [HttpPost("delete/{id}")]
+        public void  deleteUser(int id){
 
-         [HttpPost("login")]
-        public ActionResult <UserReadDto> UserLogin(User user){
-
-                 var userItem = _repository.UserLogin(user);
-
-                 if(userItem != null){
-                     return  Ok(_mapper.Map<UserReadDto>(userItem));  
-                  }
-                  return null;
-
+                  _repository.deleteUserById(id);
+                  _repository.SaveChanges();
 
             
         }
+
+      
 
         
     }

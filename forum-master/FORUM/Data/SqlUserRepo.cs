@@ -50,6 +50,12 @@ namespace FORUM.Data
             .FirstOrDefault(p => p.Id == id);
              
         }
+        public void deleteUserById(int id)
+        {
+             _context.User.RemoveRange(_context.User.Where(x => x.Id == id));
+             _context.Posts.RemoveRange(_context.Posts.Where(x => x.userId == id));
+             
+        }
 
         public User UserLogin(User user)
         {

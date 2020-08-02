@@ -77,5 +77,9 @@ export class ServicesService {
     return this.http.post<Post>('/api/posts/update/'+id,Post)
 
   }
+  deleteUser(id){
+    return this.http.post<Post>('/api/users/delete/'+id,null)
+
+  }
 
 }

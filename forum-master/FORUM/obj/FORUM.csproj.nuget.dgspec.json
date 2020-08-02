@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj": {}
+    "C:\\Users\\nadir\\Desktop\\form m8\\forum\\forum-master\\FORUM\\FORUM.csproj": {}
   },
   "projects": {
-    "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj": {
+    "C:\\Users\\nadir\\Desktop\\form m8\\forum\\forum-master\\FORUM\\FORUM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj",
+        "projectUniqueName": "C:\\Users\\nadir\\Desktop\\form m8\\forum\\forum-master\\FORUM\\FORUM.csproj",
         "projectName": "FORUM",
-        "projectPath": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\FORUM.csproj",
-        "packagesPath": "C:\\Users\\ndahhak\\.nuget\\packages\\",
-        "outputPath": "C:\\code_dev\\Git\\3\\forum\\forum-master\\FORUM\\obj\\",
+        "projectPath": "C:\\Users\\nadir\\Desktop\\form m8\\forum\\forum-master\\FORUM\\FORUM.csproj",
+        "packagesPath": "C:\\Users\\nadir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nadir\\Desktop\\form m8\\forum\\forum-master\\FORUM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ndahhak\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\nadir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

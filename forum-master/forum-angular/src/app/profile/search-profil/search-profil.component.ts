@@ -35,9 +35,12 @@ export class SearchProfilComponent implements OnInit {
     }))
   }
 
-  deleteORC(row,index){
+  delete(id){
 
+    this.servicesService.deleteUser(id).subscribe((payload=>{
+      location.reload();
 
+    }))
 
   }
   changeCaategory(user:User,type){

@@ -8,12 +8,16 @@ namespace FORUM.Data
     {
         IEnumerable<User> GetAppUsers();
         User GetUserById(int id);
+        void deleteUserById(int id);
         User UserLogin(User user);
         void createUser(User user);
         void UpdateUser(User user);
 
         
         bool SaveChanges();
+
+
+        
 
        
 

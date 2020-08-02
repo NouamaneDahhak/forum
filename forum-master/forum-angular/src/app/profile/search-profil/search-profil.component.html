@@ -68,7 +68,7 @@
         <a routerLink="/sign-up-update/{{element.id}}"  matTooltip="Modifier " mat-icon-button color="primary">
           <mat-icon aria-hidden="false" aria-label="">edit</mat-icon>
         </a>
-        <button (click)="deleteORC(element,j)" matTooltip="Supprimer "  mat-icon-button color="warn">
+        <button (click)="delete(element.id)" matTooltip="Supprimer "  mat-icon-button color="warn">
           <mat-icon aria-hidden="false" aria-label="">delete</mat-icon>
         </button>
       </td>
